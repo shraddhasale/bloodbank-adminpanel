@@ -1,0 +1,29 @@
+@import 'variables';
+
+$panel-background-color: $white;
+$panel-width: 365px;
+
+.side-panel-container {
+  position: fixed;
+  background-color: $panel-background-color;
+  top: 0px;
+  right: -$panel-width;
+  width: $panel-width;
+  bottom: 0;
+  z-index: 1031;
+  white-space: nowrap;
+  transition: all 0.5s ease-in-out;
+  padding: 0 30px;
+  box-shadow: 0 1px 15px 0 rgba(69, 65, 78, 0.08);
+  overflow-y: auto;
+
+  &.show {
+    right: 0px;
+  }
+
+  header {
+    font-size: $font-l;
+    font-weight: $font-weight-bold;
+    margin-top: 45px;
+  }
+}

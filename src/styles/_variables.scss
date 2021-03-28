@@ -1,0 +1,75 @@
+// Color Variables
+$primary: #ef1c23;
+$primary-light: rgba(255, 153, 153, 0.2);
+$success: #8bc34a;
+$info: #2f86eb;
+$warning: #ffc021;
+$danger: #ff5721;
+
+// TODO: remove
+$medium: #5f6368;
+
+$lightest: #f2f3f8;
+$lighter: #e8e9ec;
+$light: #aaadb7;
+$dark: #808593;
+$darker: #696f80;
+$darkest: #3d445a;
+
+$white: #ffffff;
+$black: #202841;
+
+$rating-5: #4caf50;
+$rating-4: $success;
+$rating-3: #ffc021;
+$rating-2: #ff9800;
+$rating-1: #ff5722;
+
+
+// Font weights
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 600 !default;
+$font-weight-bolder: bolder !default;
+
+// Font sizes
+$font-xxxl: 24px !important;
+$font-xxl: 21px !important;
+$font-xl: 18px !important;
+$font-l: 16px !important;
+$font-m: 14px !important;
+$font-s: 12px !important;
+$font-xs: 10px !important;
+
+// Container width for preview section
+$preview-container-width: 330px;
+
+/* z-index value for overlay,
+ * NOTE: it should be greater than 1030 because
+ * 1030 is z-index for header component in layout module
+ */
+$overlay-z-index: 1031;
+$overlay-background: rgba(0, 0, 0, 0.3);
+
+// ***************** Theme Colors ****************
+
+$theme-background: $lightest;
+$theme-font: $black;
+// Border
+$theme-border: $lighter;
+$theme-seperator: $lighter;
+// Input
+$theme-input-label: $dark;
+$theme-input-placeholder: $light;
+$theme-input-text: $black;
+// Tab
+$theme-tab-text: $darker;
+// Button
+$theme-btn-text: $black;
+$theme-btn-border: $theme-border;
+// Table
+$theme-table-th: $dark;
+$theme-table-row-hover: $lightest;
+// Icon
+$theme-icon: $black;

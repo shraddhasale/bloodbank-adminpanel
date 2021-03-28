@@ -1,0 +1,48 @@
+<nav
+  class="sidebar"
+>
+  <div class="list-group">
+    <ng-container *ngFor="let menu of menuItems">
+      <!-- Single Menu -->
+      <a
+        *ngIf="!menu.nestedMenu"
+        class="list-group-item pointer"
+        (click)="menuClick(menu)"
+        [ngClass]="{ 'router-link-active': showMenu == menu.name }"
+      >
+        <i [ngClass]="['menu-icon', menu.icon]"></i>&nbsp;
+        <span>{{ menu.name }}</span>
+      </a>
+      <!-- Nested Menu -->
+      <div *ngIf="menu.nestedMenu" class="nested-menu">
+        <a
+          class="list-group-item"
+          (click)="addExpandClass(menu.name)"
+          [ngClass]="{ 'router-link-active': showMenu == menu.name }"
+        >
+          <i [ngClass]="['menu-icon', menu.icon]"></i>&nbsp;
+          <span>{{ menu.name }}</span>
+        </a>
+        <li class="nested" [class.expand]="showMenu === menu.name">
+          <ul class="submenu">
+            <li *ngFor="let subMenu of menu.nestedMenu">
+              <a
+                href="javascript:void(0)"
+                [routerLink]="subMenu.routerLink"
+                (click)="subMenuClick(subMenu)"
+              >
+                <span
+                  [ngClass]="{
+                    'text-primary': subMenuSelected == subMenu.name
+                  }"
+                  >{{ subMenu.name }}</span
+                >
+              </a>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </ng-container>
+  </div>
+  
+</nav>

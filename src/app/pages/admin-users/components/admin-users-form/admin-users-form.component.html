@@ -1,0 +1,68 @@
+<form [formGroup]="adminUserForm" class="p-4 pb-0">
+  
+    <!-- endpoint-url and status -->
+    <div class="row">
+      <div class="form-group col-lg-6 required">
+        <label>First Name</label>
+        <input type="text" class="form-control" formControlName="firstName" />
+      </div>
+      <div class="form-group col-lg-6 mt-4 d-flex justify-content-end">
+        <label class="switchToggle">
+            <input type="checkbox" formControlName="statusID" />
+            <span class="switchSlider"></span>
+            </label>
+      </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-6 required">
+          <label>Last Name</label>
+          <input type="text" class="form-control" formControlName="lastName" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-6 required">
+          <label>Password</label>
+          <input type="password" class="form-control" formControlName="password" />
+        </div>
+    </div>
+      <div class="row">
+        <div class="form-group col-lg-6 required">
+          <label>Phone Number</label>
+          <input type="text" class="form-control" formControlName="phoneNumber" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-lg-6 required">
+          <label>Email</label>
+          <input type="text" class="form-control" formControlName="email" />
+        </div>
+      </div>
+    <!-- name -->
+    <div class="row">
+      
+    </div>
+  
+    
+    
+  </form>
+  
+  <!-- Footer -->
+  <div class="footer clearfix  p-4">
+    <button
+      type="button"
+      (click)="onBackClick()"
+      class="btn btn-outline-primary font-weight-bold float-left px-4"
+    >
+      BACK
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary font-weight-bold float-right px-4"
+      [ngClass]="{ disabled: adminUserForm.invalid }"
+      [disabled]="adminUserForm.invalid"
+      (click)="onSubmit()"
+    >
+      SAVE
+    </button>
+  </div>
+  

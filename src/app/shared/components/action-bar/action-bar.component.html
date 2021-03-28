@@ -1,0 +1,47 @@
+<div class="d-flex justify-content-between px-2 py-2" *ngIf="item">
+  <!-- Status Dropdown -->
+  <ng-select
+    class="status-select"
+    [items]="statusList"
+    bindLabel="name"
+    bindValue="id"
+    [searchable]="false"
+    [clearable]="false"
+    (ngModelChange)="onUpdateStatus(item, $event)"
+    [ngModel]="item?.statusId"
+    [disabled] = "statusList?.disabled"
+    *ngIf="showStatus"
+  >
+    <ng-template ng-label-tmp ng-option-tmp let-item="item">
+      <li
+        class="font-l"
+        [ngClass]="{
+          'text-success': item.id,
+          'text-danger': !item.id || item.id === 4,
+          'text-warning': item.id === 6
+        }"
+        style="float: left;"
+      ></li>
+      {{ item.name }}
+    </ng-template>
+  </ng-select>
+
+  <!-- Buttons Section -->
+  <ul class="w-100 justify-content-end action-section d-flex p-0" *ngIf="showButtons">
+    
+    
+    <!-- Edit Button -->
+    <li *ngIf="showEdit">
+      <a class="pointer" [routerLink]="editPageUrl">
+        <i class="icon icon-edit icon-font-size"></i>
+      </a>
+    </li>
+    
+    <!-- Delete Button -->
+    <li *ngIf="showDelete">
+      <a class="pointer" (click)="onUpdateStatus(item, StatusEnum.DELETED)">
+        <i class="icon icon-delete"></i>
+      </a>
+    </li>
+  </ul>
+</div>

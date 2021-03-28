@@ -1,0 +1,57 @@
+@import 'variables';
+
+/** CSS for Active/Inactive button starts*/
+.switchToggle {
+  position: relative;
+  display: inline-block;
+  width: 180px;
+  height: 37px;
+}
+
+.switchToggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switchSlider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $theme-border;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 2px;
+}
+
+.switchSlider:before {
+  position: absolute;
+  background-color: $danger;
+  content: 'Inactive';
+
+  height: 37px;
+  width: 90px;
+  padding: 8px 0 14px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  color: $white;
+  text-align: center;
+  font-size: $font-m;
+  border-radius: 2px;
+}
+
+input:checked + .switchSlider:before {
+  content: 'Active';
+  background-color: $success;
+}
+
+input:checked + .switchSlider:before {
+  -webkit-transform: translateX(90px);
+  -ms-transform: translateX(90px);
+  transform: translateX(90px);
+}
+
+/** CSS for Active/Inactive button ends*/

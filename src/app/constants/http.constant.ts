@@ -1,0 +1,5 @@
+export enum HttpError {
+  TOKEN_EXPIRED = 498,
+  VALIDATION_ERROR = 422,
+  FORBIDDEN = 403
+}

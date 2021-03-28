@@ -1,0 +1,22 @@
+<div class="search-bar">
+    <form class="form-inline search-form-inline" [formGroup]="searchForm">
+      <div class="input-group">
+        <input
+          formControlName="searchText"
+          class="form-control mr-0 border-right-0 shadow-none text-light fullwidth"
+          type="text"
+          (focus)="searchFocused = true"
+          (blur)="searchFocused = false"
+          placeholder="{{ placeholder }}"
+        />
+        <button
+          type="button"
+          (click)="onSearchSubmit()"
+          class="input-group-append btn border-left-0 rounded-right d-flex align-items-center"
+        >
+          <i class="icon-search font-m"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+  

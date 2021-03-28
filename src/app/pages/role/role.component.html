@@ -1,0 +1,29 @@
+<app-page-titlebar
+  [pageTitle]="pageTitle"
+  [itemCount]="roleCount"
+  [button]="button"
+></app-page-titlebar>
+<!-- Main Section -->
+<div class="bg-white">
+  <nav class="navbar navbar-expand-sm bg-white justify-content-between ">
+    <div class="col-md-5 p-0">
+      <app-search-bar
+        [placeholder]="'Search by  Name'"
+        (searchChange)="onSearchChange($event)"
+      ></app-search-bar>
+      
+    </div>
+  
+  </nav>
+<app-role-listing 
+[roleList] = "roleList"
+(statusUpdate)="onStatusUpdate($event)"
+></app-role-listing>
+<app-pagination
+    *ngIf="roleCount"
+    [total]="roleCount"
+    [currentPage]="currentPage"
+    (pageChange)="onPageChange($event)"
+>
+</app-pagination>
+</div>

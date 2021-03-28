@@ -1,0 +1,408 @@
+/* You can add global styles to this file, and also import other style files */
+// @import 'rtl';
+@import 'responsive';
+@import 'custom-bootstrap';
+@import 'variables';
+@import 'animate';
+@import 'ngselect-theme.scss';
+// @import '~@ng-select/ng-select/themes/default.theme.css';
+// @import '~@ng-select/ng-select/themes/material.theme.css';
+@import '~@angular/cdk/overlay';
+@include cdk-overlay();
+
+body {
+  font-family: 'Rubik', sans-serif !important;
+  font-size: $font-m;
+  background: $theme-background;
+  color: $black;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+html{
+  height: 100%;
+}
+/* Classes for different font sizes
+ * generating font classes as shown below :-
+ * .font-xxl {
+ *  font-size: $font-xxl;
+ * }
+ */
+ .font-xxxl {
+  font-size: $font-xxxl;
+}
+.font-xxl {
+  font-size: $font-xxl;
+}
+
+.font-xl {
+  font-size: $font-xl;
+}
+
+.font-l {
+  font-size: $font-l;
+}
+
+.font-m {
+  font-size: $font-m;
+}
+
+.font-s {
+  font-size: $font-s;
+}
+
+.font-xs {
+  font-size: $font-xs;
+}
+
+// code for creating custom padding classes
+$p-l: (
+  xl: 25px
+);
+
+$p-l-list: xl;
+
+@each $pSize in $p-l-list {
+  .pl-#{$pSize} {
+    padding-left: map-get($p-l, $pSize) !important;
+  }
+}
+$p-b: (
+  xs: 10px
+);
+
+$p-b-list: xs;
+
+@each $pSize in $p-b-list {
+  .pb-#{$pSize} {
+    padding-bottom: map-get($p-b, $pSize) !important;
+  }
+}
+// Badges
+.badge{
+  font-weight: 400;
+  font-size: 12px;
+  &.small{
+    padding:4px 10px;
+  }
+  &.medium{
+    padding:8px 10px;
+  }
+}
+.badge-primary{
+  background-color:$primary-light ;
+  color: $primary;
+  border: 1px solid $primary;
+}
+// NOTE: class to show cursor as pointer
+.pointer {
+  cursor: pointer !important;
+}
+// NOTE: class to show cursor as move
+.cursor-move {
+  cursor: move !important;
+}
+.break-word {
+  overflow-wrap: break-word;
+}
+// NOTE: class to show underline to text
+.text-underline {
+  text-decoration: underline;
+}
+
+// TODO: remove when/if not needed anymore
+.disabled:hover {
+  cursor: not-allowed;
+}
+
+table {
+  color: $theme-font !important;
+
+  thead tr th {
+    color: $theme-table-th;
+    border: none !important;
+  }
+  
+  tbody td {
+    border: none !important;
+  }
+}
+
+// bootstrap datepicker override
+ngb-datepicker {
+  .bg-light {
+    background-color: $lightest !important;
+  }
+
+  .ngb-dp-day:focus {
+    outline: none !important;
+  }
+}
+// drag and drop start
+.draggable {
+  cursor: move;
+  user-select: none;
+}
+
+.movable:not(.dragging) {
+  transition: transform 300ms ease-in-out;
+}
+.dragging {
+  background-image: none !important;
+  background: none !important;
+  border: 1px dashed black;
+  color: transparent;
+  opacity: 0.3;
+}
+.sortable.dragging {
+  background: none;
+  border: 1px dashed black;
+  color: transparent;
+}
+// drag and drop end
+@import './custom-inputs';
+@import './toggle-button';
+@import './custom-ngselect';
+@import './overlay';
+
+// Generating linear gradient backgrounds from list of colors
+$gradient-colors-start-list: #b224ef #667eea #fda085 #a18cd1 #4facfe #ff9a9e
+  #13547a #f5576c #64b3f4 #b490ca #ec77ab #007adf #b224ef;
+$gradient-colors-end-list: #7579ff #764ba2 #f6d365 #fbc2eb #00f2fe #fecfef
+  #80d0c7 #f093fb #c2e59c #5ee7df #7873f5 #00ecbc #7579ff;
+
+@for $i from 1 through length($gradient-colors-start-list) {
+  .bg-gradient-#{$i} {
+    $start: nth($gradient-colors-start-list, $i);
+    $end: nth($gradient-colors-end-list, $i);
+    background: linear-gradient(112deg, $start, $end);
+  }
+}
+
+.icon-success-selected {
+  position: absolute;
+  top: 11px;
+  right: 45px;
+  width: 8px;
+  height:8px;
+  background: #e11212;
+}
+
+// Disable Text selection
+.disable-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+// style for popover in pages module
+// NOTE: Ngb-popover takes only global style hence we are writing it here instead writing in it's own component
+.pages-popover {
+  width: 350px;
+  max-width: 100%;
+}
+.navbar{
+  padding: 21px 30px 10px 30px;
+} 
+  .fixed-top{
+    border-bottom: 1px solid $lightest;
+  }
+.btn-filter:hover{
+  background-color: $primary-light;
+  color: $primary !important;
+  border-color: $primary-light !important;
+}
+
+.view-content-modal {
+  img{
+      width: 100%;
+  }
+}
+
+
+
+.btn-primary-light{
+  background:$primary-light ;
+  color: $primary;
+}
+
+// Tooltip
+.bs-tooltip-top  {
+  padding: .4rem 0;
+  .arrow {
+    position: absolute;
+    display: block;
+    width: .8rem;
+    height: .4rem;
+    bottom: 0;
+    &::before{
+      position: absolute;
+      content: "";
+      border-color: transparent;
+      border-style: solid;
+      top: 0;
+      border-width: .4rem .4rem 0;
+      border-top-color: #707070;
+    }
+  }
+  .number{
+    &:after{
+      content: "";
+      border-left:1px solid #fff;
+      position: absolute;
+      right: 30px;
+      width: 1px;
+      height: 23px;
+      top: -1px;
+      opacity: 0.2;
+    }
+  }
+  .btn-copy{
+    background-color:#525151;
+    color:#fff;
+    height: 23px;
+    margin-right: -4px;
+  }
+}
+.tooltipTag{
+  &:after{
+    content:',';
+  }
+  &:last-child{
+    &::after{
+      content: '';
+    }
+  }
+}
+.bs-tooltip-top .tooltip-inner{
+  background-color: #707070;
+  color:#fff;
+  border-radius: 2px;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+// Filter accordian
+.filter-container{
+  .card-header{
+    .btn-link{
+      color:$black;
+      padding: 11px 0;
+      text-align: left;
+      float: left;
+      width: 100%;
+      border-top:1px solid $lighter;
+      border-radius: 0;
+      &:hover,&:focus{
+        text-decoration: none;
+        outline:0;
+      }
+      .icon{
+        display: none;
+        &.icon-up{
+          display: inline-block;
+        }
+      }
+      &.collapsed{
+        .icon{
+          &.icon-down{
+            display: inline-block;
+          }
+          &.icon-up{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .card-body{
+    float: left;
+    max-height: 301px;
+    padding-left: 5px;
+    width: 100%;
+    overflow-y: scroll;
+  }
+  footer{
+    width: 298px;
+    bottom: 0;
+  }
+}
+.custom-checkbox.isFavorite.custom-control:focus, 
+.custom-checkbox.isFavorite .custom-control-input, 
+.custom-checkbox.isBlacklisted.custom-control:focus, 
+.custom-checkbox.isBlacklisted .custom-control-input{
+  outline: none;
+}
+.custom-checkbox.isFavorite 
+.custom-control-input:focus ~ .custom-control-label::before, 
+.custom-checkbox.isBlacklisted .custom-control-input:focus ~ .custom-control-label::before{
+  box-shadow: none;
+}
+.custom-checkbox.isFavorite.custom-control .custom-control-label::before{
+  content: "\e924";
+  font-family: "plixxo-icons" !important;
+  border:0;
+  top:-7px;
+}
+.custom-checkbox.isFavorite .custom-control-input:checked ~ .custom-control-label::after{
+  background: none;
+  content: "\e909";
+  top:-4px;
+  font-size: 14px;
+  left: -23px;
+  font-family: "plixxo-icons" !important;
+}
+.custom-checkbox.isBlacklisted.custom-control .custom-control-label::before{
+  content: "\e91c";
+  font-family: "plixxo-icons" !important;
+  border:0;
+  top:-7px;
+  left: -26px;
+}
+.custom-checkbox.isBlacklisted .custom-control-input:checked ~ .custom-control-label::after{
+  background: none;
+  content: "\e910";
+  top:-7px;
+  font-size: 16px;
+  left: -24px;
+  font-family: "plixxo-icons" !important;
+}
+.custom-checkbox.isFavorite 
+.custom-control-input:checked ~ .custom-control-label::before,
+.custom-checkbox.isBlacklisted .custom-control-input:checked ~ .custom-control-label::before{
+  background: none ;
+}
+
+.ng5-slider .ng5-slider-selection{
+  background:$primary !important;
+}
+.ng5-slider .ng5-slider-pointer{
+  width: 24px !important;
+  height: 24px !important;
+  background: #fff !important;
+  top: -11px !important;
+  box-shadow: 0 4px 6px 2px rgba(0, 0, 0, 0.08);
+}
+.ng5-slider .ng5-slider-bubble{
+  font-size: 12px !important;
+  bottom: -27px !important;
+}
+.ng5-slider .ng5-slider-pointer:after{
+  display: none;
+}
+.ng5-slider{
+  margin: 19px 0 15px !important;
+}
+.ng5-slider.animate .ng5-slider-pointer:focus{
+  outline: none;
+}

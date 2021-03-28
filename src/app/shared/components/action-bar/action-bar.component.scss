@@ -1,0 +1,24 @@
+@import '../../../../styles/variables';
+
+.pl-230{
+  padding-left: 230px;
+}
+
+.action-section {
+  list-style-type: none;
+  margin: 9px 0 0 11px;
+  li {
+    padding: 0 1px;
+    font-size: $font-l;
+    margin-left: 3px;
+    a {
+      color: $primary;
+      padding: 8px 10px 4px;
+
+      &:hover {
+        background: $primary-light;
+        border-radius: 2px;
+      }
+    }
+  }
+}

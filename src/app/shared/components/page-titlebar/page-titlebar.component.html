@@ -1,0 +1,29 @@
+<div class="page-titlebar">
+  
+  <div class="row title-bar">
+    <!-- Page Title Section -->
+    <div class="col-sm-6 page-title">
+      <div>
+        {{ pageTitle }}
+        <span *ngIf="itemCount"> ({{ itemCount }}) </span>
+      </div>
+    </div>
+    <!-- Add Button -->
+    <div class="col-sm-6 text-right ">
+
+      <!-- note: display the incoming template -->
+      <ng-container [ngTemplateOutlet]="extraButton"></ng-container>
+
+      <a
+        class="btn btn-primary font-weight-bold"
+        [routerLink]="button.routerLink"
+        *ngIf="button.label"
+      >
+      <div class="d-flex py-1 pr-2">
+      <i class="icon-add pr-2 d-flex align-items-center"></i>
+      <span class="font-m font-weight-normal">{{ button.label }}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<main class="main-section bg-white float-left w-100">
+<ng-container *ngIf="roleWrapper">
+    <app-role-form 
+    [roleWrapper]="roleWrapper" 
+    (submit)="onRoleSubmit()"
+    (back)="redirectToRoleListing()"
+    > 
+    </app-role-form>
+</ng-container>
+</main>

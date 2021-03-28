@@ -1,0 +1,63 @@
+@import '../../../styles/variables';
+
+$header-background-color: $white;
+$header-height: 69px;
+
+:host {
+  .navbar {
+    background-color: $header-background-color;
+    height: $header-height;
+    margin-bottom: 1px;
+    .navbar-brand {
+      // TODO:remove .navbar-brand once the NUCLEAS title image is received
+      font-family: 'GillSans' !important;
+      font-size: 28px;
+      font-weight: $font-weight-bolder;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 1.1px;
+      text-align: center;
+      color: $primary;
+      margin-bottom: 8px;
+    }
+
+    .nav-item > a {
+      color: $dark;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  .messages {
+    width: 300px;
+    .media {
+      border-bottom: 1px solid #ddd;
+      padding: 5px 10px;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    .media-body {
+      h5 {
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .small {
+        margin: 0;
+      }
+      .last {
+        font-size: 12px;
+        margin: 0;
+      }
+    }
+  }
+  .header-icon {
+    font-size: 20px;
+  }
+
+  .bell.dropdown-toggle::after {
+    display: none;
+  }
+}

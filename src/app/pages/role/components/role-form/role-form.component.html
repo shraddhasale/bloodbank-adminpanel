@@ -1,0 +1,45 @@
+<form [formGroup]="roleForm" class="p-4 pb-0">
+  
+    <!-- endpoint-url and status -->
+    <div class="row">
+      <div class="form-group col-lg-6 required">
+        <label>name</label>
+        <input type="text" class="form-control" formControlName="name" />
+      </div>
+    </div>
+  
+    <!-- name -->
+    <div class="row">
+      <div class="form-group col-lg-8 required">
+        <label class="w-100 float-left">Status</label>
+        <label class="switchToggle">
+            <input type="checkbox" formControlName="statusID" />
+            <span class="switchSlider"></span>
+            </label>
+      </div>
+    </div>
+  
+    
+    
+  </form>
+  
+  <!-- Footer -->
+  <div class="footer clearfix  p-4">
+    <button
+      type="button"
+      (click)="onBackClick()"
+      class="btn btn-outline-primary font-weight-bold float-left px-4"
+    >
+      BACK
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary font-weight-bold float-right px-4"
+      [ngClass]="{ disabled: roleForm.invalid }"
+      [disabled]="roleForm.invalid"
+      (click)="onSubmit()"
+    >
+      SAVE
+    </button>
+  </div>
+  

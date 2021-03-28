@@ -1,0 +1,9 @@
+@import '../../../../styles/variables';
+
+.spinner-container {
+	z-index: $overlay-z-index;
+	.spinner-border {
+		width: 75px;
+		height: 75px;
+	}
+}

@@ -1,0 +1,35 @@
+@import '../../../../styles/variables';
+
+// Page titlebar shows breadcrumb and Title
+.page-titlebar {
+  // margin-top: 23px;
+  margin-bottom: 21px;
+  .breadcrumb {
+    color: $dark;
+    font-size: $font-s;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    margin-bottom: -8px;
+    a {
+      color: $darker;
+      text-decoration: none;
+    }
+  }
+  .title-bar {
+    height: 40px;
+    display: flex;
+    align-items: flex-end;
+    .page-title {
+      font-size: $font-xxl;
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+.breadcrumb-item{
+  + .breadcrumb-item{
+    &::before{
+      color: $light;
+    }
+  }
+}

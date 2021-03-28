@@ -1,0 +1,9 @@
+<main class="main-section bg-white float-left w-100">
+    <!-- endpoint detail form -->
+    <app-url-form
+      [urlWrapper]="urlWrapper"
+      (submit)="onUrlSubmit()"
+      (back)="redirectToEndpointListing()"
+    >
+    </app-url-form>
+  </main>

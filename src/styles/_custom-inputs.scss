@@ -1,0 +1,164 @@
+@import 'variables';
+
+// bootstrap custom checkbox override
+.custom-checkbox.custom-control {
+  .custom-control-label {
+    &::before {
+      top: 0;
+      width: 20px;
+      height: 20px;
+    }
+    &::after {
+      top: 2px;
+      left: -22px;
+      transform: scale(1.2);
+      background-size: 9px;
+    }
+  }
+}
+
+//
+.required > label:after {
+  content: '*';
+  color: $primary;
+  margin-left: 8px;
+}
+
+.required .custom-radio label:after {
+  content: none;
+}
+
+.btn {
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+// Input Fields
+.form-group,
+.input-group {
+  label {
+    color: $theme-input-label;
+  }
+
+  .form-control {
+    color: $theme-input-text;
+    border-color: $theme-border;
+    font-size: $font-m;
+
+    &:focus {
+      border-color: $primary;
+      box-shadow: none;
+
+      & + .input-group-append {
+        .input-group-text {
+          border-color: $primary;
+        }
+      }
+    }
+
+    &::placeholder {
+      color: $theme-input-placeholder;
+    }
+  }
+
+  .input-group-append {
+    .input-group-text {
+      border-color: $theme-border;
+    }
+  }
+
+  .form-control.ng-dirty,
+  .form-control.ng-touched {
+    &.ng-invalid {
+      border-color: $danger;
+
+      &:focus {
+        border-color: $danger;
+        box-shadow: none;
+      }
+
+      & + .input-group-append {
+        .input-group-text {
+          border-color: $danger;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+.custom-radio{
+  .custom-control-input {
+    &:checked {
+      ~ {
+        .custom-control-label {
+          &::before {
+            background-color: unset;
+          }
+          &::after {
+            content: "";
+            background-color: $primary;
+            top: 5px;
+            left: -20px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-image: none;
+          }
+        }
+      }
+    }
+    &:focus {
+      ~ {
+        .custom-control-label {
+          &::before {
+            box-shadow: unset;
+          }
+        }
+      }
+    }
+  }
+}
+  .custom-control-label {
+    &::before {
+      top: 0px;
+      left: -25px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+.custom-switch{
+  .custom-control-input{
+    &:focus{
+      ~
+      {
+          .custom-control-label{
+            &::before {
+              box-shadow: unset;
+          }
+        }
+      }
+    }
+    &:checked{
+       ~ 
+       {
+           .custom-control-label {
+             &::before {
+              color: $white;
+              box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0);
+              opacity: 0.2;
+              border-radius: 9px;
+              background-color: $dark;
+              border-color: $dark;
+           }
+             &::after{
+              background-color: $rating-5;
+           }
+          }
+          }
+        }
+        }
+    }

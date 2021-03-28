@@ -1,0 +1,14 @@
+<app-page-titlebar
+  [pageTitle]="pageTitle"
+></app-page-titlebar>
+<main class="main-section bg-white float-left w-100">
+    <!-- endpoint detail form -->
+    <ng-container *ngIf="urlWrapper">
+    <app-url-form
+      [urlWrapper]="urlWrapper"
+      (submit)="onUrlSubmit()"
+      (back)="redirectToEndpointListing()"
+    >
+    </app-url-form>
+  </ng-container>
+  </main>

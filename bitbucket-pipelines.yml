@@ -1,0 +1,63 @@
+image: node:12-slim
+
+clone:
+    depth: full
+
+definitions:
+    caches:
+        sonar: ~/.sonar/cache
+    services: 
+        docker:
+           memory: 3072
+
+    steps:
+          - step: &sonarcloud
+              name: Build & Test project against sonarcloud
+              caches:
+                 - sonar
+              script:
+                 - npm install
+                 - pipe: sonarsource/sonarcloud-scan:1.0.1
+                 - pipe: sonarsource/sonarcloud-quality-gate:0.1.3
+                   variables:
+                   SONAR_TOKEN: ${SONAR_TOKEN}
+
+pipelines:
+
+      default:
+          - step:
+              script:
+                  - echo "This script runs on all branches that don't have any specific pipeline assigned in 'branches'."
+
+      branches:
+          staging:
+              - step:
+                    name: Build Staging
+                    caches:
+                        - node
+                    script:
+                        - export NODE_OPTIONS=--max_old_space_size=2560
+                        - npm install
+                        - npm run postinstall
+                        - npm run build-alpha
+                    artifacts: 
+                        - dist/**
+
+              - step:
+                     name: Deploy on Staging 
+                     deployment: Staging
+                     trigger: manual
+                     services:
+                         - docker
+                     caches:
+                         - docker
+                     script:
+                         - pipe: atlassian/google-cloud-storage-deploy:0.4.5
+                           variables:
+                              KEY_FILE: $KEY_FILE
+                              PROJECT: $PROJECT
+                              BUCKET: $BUCKET
+                              SOURCE: $SOURCE
+                              ACL: 'public-read'
+                              STORAGE_CLASS: 'regional'
+                              EXTRA_ARGS: '-r'

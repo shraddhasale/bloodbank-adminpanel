@@ -1,0 +1,13 @@
+<ng-container *ngIf="isVisible">
+  <div
+    id="overlay"
+    class="spinner-container align-items-center d-flex justify-content-center position-fixed h-100 w-100"
+  >
+    <div class="d-block text-center">
+      <div class="spinner-border text-primary"></div>
+      <p class="text-white font-l">
+        {{ userDefinedMessage || defaultMessage }}
+      </p>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,74 @@
+<form [formGroup]="urlForm" class="p-4 pb-0">
+    <!-- endpoint-url and status -->
+    <div class="row">
+      <div class="form-group col-lg-8 required">
+        <label>Endpoint</label>
+        <input type="text" class="form-control" formControlName="endPoint" />
+      </div>
+      <div class="form-group col-lg-4 mt-4 d-flex justify-content-end">
+        <label class="switchToggle">
+          <input type="checkbox" formControlName="statusID" />
+          <span class="switchSlider"></span>
+          </label>
+      </div>
+    </div>
+  
+    <!-- name -->
+    <div class="row">
+      <div class="form-group col-lg-8 required">
+        <label>Label</label>
+        <input type="text" class="form-control" formControlName="name" />
+      </div>
+    </div>
+  
+    <!-- Verb -->
+    <div class="row">
+      <div class="col-8 form-group required">
+        <label>Verb</label>
+        <ng-select
+          class="w-100 text-capitalize"
+          [multiple]="false" 
+          [items]="VerbList" 
+          [searchable]="false"
+          formControlName="verb"
+        ></ng-select>
+      </div>
+    </div>
+    <!-- Verb -->
+    <div class="row">
+      <div class="col-8 form-group required">
+        <label>Role</label>
+        <ng-select
+          class="w-100 text-capitalize"
+          [multiple]="true" 
+          [items]="roleList" 
+          bindLabel="name"
+          bindValue="name"
+          formControlName="roleID"
+          (change)="onRoleChange($event)"
+          [searchable]="true"
+        ></ng-select>
+      </div>
+    </div>
+  </form>
+  
+  <!-- Footer -->
+  <div class="footer clearfix  p-4">
+    <button
+      type="button"
+      (click)="onBackClick()"
+      class="btn btn-outline-primary font-weight-bold float-left px-4"
+    >
+      BACK
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary font-weight-bold float-right px-4"
+      [ngClass]="{ disabled: urlForm.invalid }"
+      [disabled]="urlForm.invalid || roleId.length === 0"
+      (click)="onSubmit()"
+    >
+      SAVE
+    </button>
+  </div>
+  
