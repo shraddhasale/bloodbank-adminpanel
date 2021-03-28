@@ -226,12 +226,23 @@
           this.pageTitle = "Edit URL";
           this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         }
+        /**
+         * @description get id from activated route
+         * @memberof EditEndpointComponent
+         */
+
 
         _createClass(EditUrlComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
             this.fetchEndpointById(this._activatedRoute.snapshot.params.id);
           }
+          /**
+           * @description fetch endpoint details by its id and assign value to wrapper
+           * @param {string} endpointId
+           * @memberof EditEndpointComponent
+           */
+
         }, {
           key: "fetchEndpointById",
           value: function fetchEndpointById(endpointId) {
@@ -249,43 +260,45 @@
               _this._spinner.hide();
             }));
           }
+          /**
+           * @description send updated wrapper body to endpoint
+           * @memberof EditEndpointComponent
+           */
+
         }, {
           key: "onUrlSubmit",
           value: function onUrlSubmit() {
             var _this2 = this;
 
-            if (this.urlWrapper.statusID === false) {
-              this.urlWrapper.statusID = 0;
-            } else if (this.urlWrapper.statusID === true) {
-              this.urlWrapper.statusID = 1;
-            } // delete  this.urlWrapper.id;
-            // delete this.urlWrapper.createdAt;
-
-
-            delete this.urlWrapper.updatedAt;
-
             this._spinner.show('Updating URL ...');
 
             var updatedEndpointWrapper = Object.assign({}, this.urlWrapper);
             this.subscriptions.add(this._endpointHttp.updateEndpoint(updatedEndpointWrapper).subscribe(function (res) {
-              _this2._toast.success("Endpoint ".concat(updatedEndpointWrapper.name, " updated successfully."));
+              _this2._toast.success("Endpoint ".concat(updatedEndpointWrapper.name, " updated successfully.")); // this._spinner.hide();
 
-              _this2._spinner.hide();
             }, function (err) {
               _this2._toast.error(err.error.message, 'URL Update Failed');
-            }));
+            })); // this._spinner.hide();
           }
+          /**
+           * @description redirects to listing page
+           * @memberof EditEndpointComponent
+           */
+
         }, {
           key: "redirectToEndpointListing",
           value: function redirectToEndpointListing() {
             this._router.navigate(['/urls']);
           }
+          /**
+           * @description unsubscribe all subscription
+           * @memberof EditEndpointComponent
+           */
+
         }, {
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
-            this.subscriptions.unsubscribe();
-
-            this._spinner.hide();
+            this.subscriptions.unsubscribe(); // this._spinner.hide();
           }
         }]);
 
@@ -482,7 +495,7 @@
             return this._http.put(this.baseUrl + _const_api_constant__WEBPACK_IMPORTED_MODULE_3__["API_ENDPOINT"].url.update + "/".concat(reqBody.id), reqBody);
           }
           /**
-           * delete endpoint
+           * updates endpoint
           */
 
         }, {
@@ -741,7 +754,7 @@
         },
         decls: 30,
         vars: 11,
-        consts: [[1, "p-4", "pb-0", 3, "formGroup"], [1, "row"], [1, "form-group", "col-lg-8", "required"], ["type", "text", "formControlName", "endPoint", 1, "form-control"], [1, "form-group", "col-lg-4", "mt-4", "d-flex", "justify-content-end"], [1, "switchToggle"], ["type", "checkbox", "formControlName", "statusID"], [1, "switchSlider"], ["type", "text", "formControlName", "name", 1, "form-control"], [1, "col-8", "form-group", "required"], ["formControlName", "verb", 1, "w-100", "text-capitalize", 3, "multiple", "items", "searchable"], ["bindLabel", "name", "bindValue", "name", "formControlName", "roleID", 1, "w-100", "text-capitalize", 3, "multiple", "items", "searchable", "change"], [1, "footer", "clearfix", "p-4"], ["type", "button", 1, "btn", "btn-outline-primary", "font-weight-bold", "float-left", "px-4", 3, "click"], ["type", "button", 1, "btn", "btn-primary", "font-weight-bold", "float-right", "px-4", 3, "ngClass", "disabled", "click"]],
+        consts: [[1, "p-4", "pb-0", 3, "formGroup"], [1, "row"], [1, "form-group", "col-lg-8", "required"], ["type", "text", "formControlName", "endPoint", 1, "form-control"], [1, "form-group", "col-lg-4", "mt-4", "d-flex", "justify-content-end"], [1, "switchToggle"], ["type", "checkbox", "formControlName", "statusID"], [1, "switchSlider"], ["type", "text", "formControlName", "name", 1, "form-control"], [1, "col-8", "form-group", "required"], ["formControlName", "verb", 1, "w-100", "text-capitalize", 3, "multiple", "items", "searchable"], ["bindLabel", "name", 1, "w-100", "text-capitalize", 3, "multiple", "items", "searchable", "change"], [1, "footer", "clearfix", "p-4"], ["type", "button", 1, "btn", "btn-outline-primary", "font-weight-bold", "float-left", "px-4", 3, "click"], ["type", "button", 1, "btn", "btn-primary", "font-weight-bold", "float-right", "px-4", 3, "ngClass", "disabled", "click"]],
         template: function UrlFormComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
@@ -1143,9 +1156,8 @@
           value: function onUrlSubmit() {
             var _this4 = this;
 
-            this._spinner.show("Saving url ".concat(this.urlWrapper.name, "...")); // console.log(this.urlWrapper);
-
-
+            //   // this._spinner.show(`Saving Endpoint ${this.endpointWrapper.label}...`);
+            // console.log(this.urlWrapper);
             if (this.urlWrapper.statusID === false) {
               this.urlWrapper.statusID = 0;
             } else if (this.urlWrapper.statusID === true) {
@@ -1279,9 +1291,9 @@
         if (rf & 1) {
           var _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr", 7);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td", 8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
 
@@ -1289,33 +1301,33 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "td", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "td", 8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "td", 10);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "td", 9);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "td", 11);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "td", 10);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "td", 11);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "td", 10);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "td", 11);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "td", 10);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "app-action-bar", 12);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "app-action-bar", 11);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("onItemUpdate", function UrlListingComponent_tr_17_Template_app_action_bar_onItemUpdate_13_listener($event) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3);
@@ -1399,7 +1411,7 @@
         },
         decls: 18,
         vars: 1,
-        consts: [[1, "acl-user-container"], [1, "table", "user-table"], [1, "border-top", "border-bottom"], [1, "font-weight-normal", "align-middle", "pl-3"], [1, "font-weight-normal", "align-middle"], [1, "font-weight-normal", "align-middle", "px-3"], [1, "font-weight-normal", "align-middle", "px-3", 2, "width", "120px"], ["class", "border-bottom", 4, "ngFor", "ngForOf"], [1, "border-bottom"], [1, "align-middle", "pl-3"], [1, "align-middle", "text-primary"], [1, "align-middle"], [3, "item", "showStatus", "showClone", "editPageUrl", "onItemUpdate"]],
+        consts: [[1, "acl-user-container"], [1, "table", "user-table"], [1, "border-top", "border-bottom"], [1, "font-weight-normal", "align-middle", "pl-3"], [1, "font-weight-normal", "align-middle"], [1, "font-weight-normal", "align-middle", "px-3"], ["class", "border-bottom", 4, "ngFor", "ngForOf"], [1, "border-bottom"], [1, "align-middle", "pl-3"], [1, "align-middle", "text-primary"], [1, "align-middle"], [3, "item", "showStatus", "showClone", "editPageUrl", "onItemUpdate"]],
         template: function UrlListingComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -1440,7 +1452,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "th", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "th", 5);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "Action");
 
@@ -1452,7 +1464,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "tbody");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, UrlListingComponent_tr_17_Template, 14, 12, "tr", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, UrlListingComponent_tr_17_Template, 14, 12, "tr", 6);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1627,11 +1639,7 @@
           this.pageSize = _const_api_constant__WEBPACK_IMPORTED_MODULE_2__["API_CONFIG"].pageSize;
           this.paginationTotalCount = 0;
           this.currentPage = 1;
-          this.where = {
-            statusID: {
-              inq: [_const_api_constant__WEBPACK_IMPORTED_MODULE_2__["StatusEnum"].ACTIVE, _const_api_constant__WEBPACK_IMPORTED_MODULE_2__["StatusEnum"].INACTIVE]
-            }
-          };
+          this.where = {};
           this.urlCount = 0;
           this.urlList = [];
           this.urlFilter = {};

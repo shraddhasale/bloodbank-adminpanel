@@ -1,7 +1,7 @@
 
 
 export interface EndpointI {
-  id?: number;
+  id?: string;
   name: string;
   endPoint: string;
   verb?: ''; // ! used for creating new endpoint

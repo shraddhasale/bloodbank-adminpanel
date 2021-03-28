@@ -41,6 +41,13 @@ const routes: Routes = [
           )
       },
       {
+        path: 'users',
+        loadChildren: () =>
+          import('../pages/users/users.module').then(
+            (m) => m.UsersModule
+          )
+      },
+      {
         path: 'blood-bank',
         loadChildren: () =>
           import('../pages/blood-bank/blood-bank.module').then(

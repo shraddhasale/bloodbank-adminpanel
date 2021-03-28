@@ -63,9 +63,9 @@ export class RoleHttpService {
   /**
    *updates role
   */
-   updateEndpoint(reqBody: any): Observable<any> {
+   updateRole(reqBody: any, roleId: string): Observable<any> {
     return this._http.put<any>(
-      this.baseUrl + API_ENDPOINT.role.update + `/${reqBody.id}`,
+      this.baseUrl + API_ENDPOINT.role.update + `/${roleId}`,
        reqBody 
     );
   }

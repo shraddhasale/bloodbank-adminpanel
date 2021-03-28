@@ -18,7 +18,7 @@ export const API_ENDPOINT = {
   },
   users: {
     fetchAll: '/user', //Get 
-    fetchById:'/user/asddasdas', //Get
+    fetchById:'/user', //Get
     count:'/user/count', //Get
     create: '/user', //Post
     update: '/user', //Put
@@ -38,6 +38,13 @@ export const API_ENDPOINT = {
     fetchById:'/adminuser',
     update:'/adminuser',
     delete: '/adminuser',
+  },
+  apiKey:{
+    fetchAll: '/apikey', //Get 
+    create: '/apikey', //post
+    fetchById:'/apikey',
+    update:'/apikey',
+    delete: '/apikey',
   }
 };
 

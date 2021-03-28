@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  websiteNodeHost: 'http://52.66.15.237:3000',
+  websiteNodeHost: 'http://65.0.182.136:3000',
   //websiteNodeHost: 'http://soc-dev.myglamm.net:9057', // baseUrl for node APIs
   apiKey: 'sywSAQ85Q45vwsUcOjQw2kFm4ERpSAE7', // API key to let ACL know Nucleus is making request
 };

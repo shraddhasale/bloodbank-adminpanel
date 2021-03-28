@@ -1,1 +1,38 @@
-<p>apikey-listing works!</p>
+<!-- Table -->
+<div class="acl-user-container">
+    <table class="table user-table">
+      <thead>
+        <tr class="border-top border-bottom">
+          <th class="font-weight-normal align-middle  pl-3">Date</th>
+          <th class="font-weight-normal align-middle  pl-3">Name</th>
+          <th class="font-weight-normal align-middle ">Api Key</th>
+          <th class="font-weight-normal align-middle px-3" style="width:120px">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr class="border-bottom"  *ngFor="let api of apikeyList">
+          <td class="align-middle  pl-3">
+           {{api?.createdAt | date: 'dd/MM/yyyy' }}
+          </td>
+          <td class="align-middle  pl-3">
+            {{api?.name}}
+           </td>
+          <td class="align-middle  text-primary">
+            {{api?.apikey}}
+          </td>
+          
+          <td class="align-middle">
+            <app-action-bar
+            [item]="api"
+            (onItemUpdate)="onUpdate($event)"
+            [showStatus]="false"
+            [showClone]="false"
+            [editPageUrl]="apikeyUrl + api.id"
+          ></app-action-bar>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 

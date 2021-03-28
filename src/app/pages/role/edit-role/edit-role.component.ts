@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { RoleI} from '../models/role.model';
 import { RoleHttpService } from '../services/role-http.service'
-import { StatusEnum } from '@const/api.constant';
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
 @Component({
@@ -49,16 +48,21 @@ export class EditRoleComponent implements OnInit,OnDestroy {
     );
   }
   onRoleSubmit(){
+    let roleId = this.roleWrapper.id;
     if(this.roleWrapper.statusID === false){
       this.roleWrapper.statusID = 0
     }else if(this.roleWrapper.statusID === true){
       this.roleWrapper.statusID = 1;
     }
+    delete this.roleWrapper.id;
+    delete this.roleWrapper.createdAt;
+    delete this.roleWrapper.updatedAt;
     this.subscriptions.add(
-      this._roleHttp.updateEndpoint(this.roleWrapper)
+      this._roleHttp.updateRole(this.roleWrapper,roleId)
       .subscribe(
         (resp) => {
-       this.redirectToRoleListing();
+          this._toast.success('Role Updated Sucessfully');
+        this.redirectToRoleListing();
         },
         err => {
           this._toast.error(err.error.message, 'role');

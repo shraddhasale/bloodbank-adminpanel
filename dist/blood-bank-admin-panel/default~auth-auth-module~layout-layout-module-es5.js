@@ -10745,13 +10745,6 @@
           fetchById: '/role',
           update: '/role',
           "delete": '/role'
-        },
-        adminUsers: {
-          fetchAll: '/adminuser',
-          create: '/adminuser',
-          fetchById: '/adminuser',
-          update: '/adminuser',
-          "delete": '/adminuser'
         }
       }; // Status Enum for all modules
 

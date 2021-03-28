@@ -62,9 +62,9 @@ export class UrlHttpsService {
   /**
    *updates endpoint
   */
-   updateEndpoint(reqBody: any): Observable<any> {
+   updateUrl(reqBody: any, urlId: string): Observable<any> {
     return this._http.put<any>(
-      this.baseUrl + API_ENDPOINT.url.update + `/${reqBody.id}`,
+      this.baseUrl + API_ENDPOINT.url.update + `/${urlId}`,
        reqBody 
     );
   }

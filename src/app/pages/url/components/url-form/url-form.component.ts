@@ -31,7 +31,17 @@ export class UrlFormComponent implements OnInit {
   ngOnInit() {
     this.initEndpointForm();
     this.getRoleList();
-    
+    // if(this.urlWrapper.id){
+    //   this._urlhttps.fetchAllRole().subscribe(resp=>{
+    //     resp['data'].map(res =>{
+    //      this.urlWrapper.roleID.map(resp =>{
+    //         console.log(resp);
+            
+    //       })
+    //     })
+        
+    //   })
+    // }
   }
   
 

@@ -1,1 +1,10 @@
-<p>edit-apikey works!</p>
+<main class="main-section bg-white float-left w-100">
+    <ng-container *ngIf="apiKeyWrapper">
+        <app-apikey-form
+        [apiKeyWrapper]="apiKeyWrapper" 
+        (submit)="onApiKeySubmit()"
+        (back)="redirectToApiKeyListing()"
+        > 
+        </app-apikey-form>
+    </ng-container>
+</main>

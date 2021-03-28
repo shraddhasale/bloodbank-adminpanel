@@ -1,0 +1,44 @@
+<!-- Table -->
+<div class="acl-user-container">
+    <table class="table user-table">
+      <thead>
+        <tr class="border-top border-bottom">
+          <th class="font-weight-normal align-middle  pl-3">Date</th>
+          <th class="font-weight-normal align-middle  pl-3">Name</th>
+          <th class="font-weight-normal align-middle ">Phone Number</th>
+          <th class="font-weight-normal align-middle ">Email</th>
+          <th class="font-weight-normal align-middle px-3">Username</th>
+          <th class="font-weight-normal align-middle px-3" style="width:120px">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-bottom"  *ngFor="let user of userList">
+          <td class="align-middle  pl-3">
+           {{user?.createdAt | date: 'dd/MM/yyyy' }}
+          </td>
+          <td class="align-middle  pl-3">
+            {{user?.firstName}} {{user?.lastName}}
+           </td>
+          <td class="align-middle  text-primary">
+            {{user?.phoneNumber}}
+          </td>
+          <td class="align-middle">
+           <a href="mailto:{{user?.email}}" class="primary-text">{{user?.email}}</a>
+          </td>
+          <td class="align-middle">
+            {{user?.username}}
+          </td>
+          <td class="align-middle">
+            <app-action-bar
+            [item]="user"
+            (onItemUpdate)="onUpdate($event)"
+            [showStatus]="false"
+            [showClone]="false"
+            [editPageUrl]="userUrl + user.id"
+          ></app-action-bar>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 

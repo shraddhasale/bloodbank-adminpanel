@@ -1,0 +1,125 @@
+<form [formGroup]="userForm" class="p-4 pb-0">
+  
+    <!-- endpoint-url and status -->
+    <div class="row">
+      <div class="form-group col-lg-6 required">
+        <label>First Name</label>
+        <input type="text" class="form-control" formControlName="firstName" />
+      </div>
+      <div class="form-group col-lg-6 mt-4 d-flex justify-content-end">
+        <label class="switchToggle">
+            <input type="checkbox" formControlName="statusID" />
+            <span class="switchSlider"></span>
+            </label>
+      </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-6 required">
+          <label>Last Name</label>
+          <input type="text" class="form-control" formControlName="lastName" />
+        </div>
+        <div class="form-group col-lg-6 required">
+            <label>Phone Number</label>
+            <input type="text" class="form-control" formControlName="phoneNumber" />
+          </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-6 required">
+          <label>Email</label>
+          <input type="text" class="form-control" formControlName="email" />
+        </div>
+        <div class="form-group col-lg-6 required">
+            <label>Gender</label>
+            <input type="text" class="form-control" formControlName="gender" />
+          </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-6 required">
+            <label>User name</label>
+            <input type="text" class="form-control" formControlName="username" />
+        </div>
+        <div class="form-group col-lg-6 required">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="password" />
+        </div>
+    </div>
+  
+    <div class="row">
+        <div class="form-group col-lg-6 required">
+          <label>DOB</label>
+          <input type="text" class="form-control" formControlName="dob" />
+        </div>
+        <div class="form-group col-lg-6 required">
+            <label>Nationality</label>
+            <input type="text" class="form-control" formControlName="nationality" />
+          </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-6 required">
+          <label>Pan Card</label>
+          <input type="text" class="form-control" formControlName="panCard" />
+        </div>
+        <div class="form-group col-lg-6 required">
+            <label>Adhar Card</label>
+            <input type="text" class="form-control" formControlName="adharCard" />
+          </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-6 required">
+          <label>Blood Group</label>
+          <input type="text" class="form-control" formControlName="bloodgroup" />
+        </div>
+        <div class="form-group col-lg-6 required" formGroupName="address"> 
+            <label>Country</label>
+            <input type="text" class="form-control" formControlName="country" />
+          </div>
+    </div>
+     <div class="row">
+        <div class="form-group col-lg-6 required" formGroupName="address">
+          <label>State</label>
+          <input type="text" class="form-control" formControlName="state" />
+        </div>
+        <div class="form-group col-lg-6 required" formGroupName="address">
+            <label>City</label>
+            <input type="text" class="form-control" formControlName="city" />
+          </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-6 required" formGroupName="address">
+          <label>PinCode</label>
+          <input type="text" class="form-control" formControlName="pinCode" />
+        </div>
+        <div class="form-group col-lg-6 required" formGroupName="address">
+            <label>LandMark</label>
+            <input type="text" class="form-control" formControlName="landMark" />
+          </div>
+    </div>
+     <div class="row">
+        <div class="form-group col-lg-6 required" formGroupName="address">
+          <label>Location</label>
+          <input type="text" class="form-control" formControlName="location" />
+        </div>
+    </div>
+    
+   </form>
+  
+  <!-- Footer -->
+  <div class="footer clearfix  p-4">
+    <button
+      type="button"
+      (click)="onBackClick()"
+      class="btn btn-outline-primary font-weight-bold float-left px-4"
+    >
+      BACK
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary font-weight-bold float-right px-4"
+      [ngClass]="{ disabled: userForm.invalid }"
+      [disabled]="userForm.invalid"
+      (click)="onSubmit()"
+    >
+      SAVE
+    </button>
+  </div>
+  

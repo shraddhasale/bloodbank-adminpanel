@@ -17,7 +17,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       module.exports = __webpack_require__(
-      /*! c:\project\bloodbank-adminpanel\src\main.ts */
+      /*! /Users/sagarshinde/Sagar/projects/bloodbank-adminpanel/src/main.ts */
       "zUnb");
       /***/
     },
@@ -632,6 +632,83 @@
     },
 
     /***/
+    "Kh9d":
+    /*!**********************************************************!*\
+      !*** ./src/app/pages/blood-bank/blood-bank.component.ts ***!
+      \**********************************************************/
+
+    /*! exports provided: BloodBankComponent */
+
+    /***/
+    function Kh9d(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "BloodBankComponent", function () {
+        return BloodBankComponent;
+      });
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+
+      var BloodBankComponent = /*#__PURE__*/function () {
+        function BloodBankComponent() {
+          _classCallCheck(this, BloodBankComponent);
+        }
+
+        _createClass(BloodBankComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {}
+        }]);
+
+        return BloodBankComponent;
+      }();
+
+      BloodBankComponent.ɵfac = function BloodBankComponent_Factory(t) {
+        return new (t || BloodBankComponent)();
+      };
+
+      BloodBankComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+        type: BloodBankComponent,
+        selectors: [["app-blood-bank"]],
+        decls: 2,
+        vars: 0,
+        template: function BloodBankComponent_Template(rf, ctx) {
+          if (rf & 1) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "blood-bank works!");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          }
+        },
+        styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJibG9vZC1iYW5rLmNvbXBvbmVudC5zY3NzIn0= */"]
+      });
+      /*@__PURE__*/
+
+      (function () {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](BloodBankComponent, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+          args: [{
+            selector: 'app-blood-bank',
+            templateUrl: './blood-bank.component.html',
+            styleUrls: ['./blood-bank.component.scss']
+          }]
+        }], function () {
+          return [];
+        }, null);
+      })();
+      /***/
+
+    },
+
+    /***/
     "Sy1n":
     /*!**********************************!*\
       !*** ./src/app/app.component.ts ***!
@@ -807,6 +884,12 @@
       var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./app.component */
       "Sy1n");
+      /* harmony import */
+
+
+      var _pages_blood_bank_blood_bank_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! ./pages/blood-bank/blood-bank.component */
+      "Kh9d");
 
       var AppModule = function AppModule() {
         _classCallCheck(this, AppModule);
@@ -830,7 +913,7 @@
 
       (function () {
         (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, {
-          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
+          declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"], _pages_blood_bank_blood_bank_component__WEBPACK_IMPORTED_MODULE_6__["BloodBankComponent"]],
           imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"]]
         });
       })();
@@ -841,7 +924,7 @@
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
           args: [{
-            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
+            declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"], _pages_blood_bank_blood_bank_component__WEBPACK_IMPORTED_MODULE_6__["BloodBankComponent"]],
             imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"]],
             providers: [{
               provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HTTP_INTERCEPTORS"],

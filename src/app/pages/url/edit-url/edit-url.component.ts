@@ -22,7 +22,7 @@ export class EditUrlComponent implements OnInit {
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
     private _spinner: SpinnerService,
-    private _endpointHttp: UrlHttpsService,
+    private _urltHttp: UrlHttpsService,
     private _toast: ToastService
    
   ) {}
@@ -34,7 +34,7 @@ export class EditUrlComponent implements OnInit {
   fetchEndpointById(endpointId: string) {
     this._spinner.show('Fetching Url Detail...');
     this.subscriptions.add(
-      this._endpointHttp.fetchEndpointById(endpointId).subscribe(
+      this._urltHttp.fetchEndpointById(endpointId).subscribe(
         (res) => {
           this.urlWrapper = res;
           this._spinner.hide();
@@ -51,20 +51,22 @@ export class EditUrlComponent implements OnInit {
   }
 
   onUrlSubmit() {
+    let urlId = this.urlWrapper.id;
     if(this.urlWrapper.statusID === false){
       this.urlWrapper.statusID = 0
     }else if(this.urlWrapper.statusID === true){
       this.urlWrapper.statusID = 1;
     }
-    // delete  this.urlWrapper.id;
-    // delete this.urlWrapper.createdAt;
+    delete  this.urlWrapper.id;
+    delete this.urlWrapper.createdAt;
     delete this.urlWrapper.updatedAt;
     this._spinner.show('Updating URL ...');
     let updatedEndpointWrapper = { ...this.urlWrapper };
     this.subscriptions.add(
-      this._endpointHttp.updateEndpoint(updatedEndpointWrapper).subscribe(
+      this._urltHttp.updateUrl(updatedEndpointWrapper, urlId).subscribe(
         (res) => {
-          this._toast.success(`Endpoint ${updatedEndpointWrapper.name} updated successfully.`);
+          this._toast.success(`Url ${updatedEndpointWrapper.name} updated successfully.`);
+          this.redirectToEndpointListing();
           this._spinner.hide();
         },
         (err) => {

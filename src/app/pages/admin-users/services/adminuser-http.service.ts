@@ -61,9 +61,9 @@ export class AdminuserHttpService {
   /**
    *updates endpoint
   */
-   updateAdminUser(reqBody: any): Observable<any> {
+   updateAdminUser(reqBody: any, adminId:string): Observable<any> {
     return this._http.put<any>(
-      this.baseUrl + API_ENDPOINT.adminUsers.update + `/${reqBody.id}`,
+      this.baseUrl + API_ENDPOINT.adminUsers.update + `/${adminId}`,
        reqBody 
     );
   }

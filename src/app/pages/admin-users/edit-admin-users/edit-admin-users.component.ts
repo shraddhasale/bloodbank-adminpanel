@@ -48,14 +48,17 @@ export class EditAdminUsersComponent implements OnInit {
       )
     );
   }
-  onRoleSubmit(){
+  onAdminUserSubmit(){
+    let adminId = this.adminUserWrapper.id
     if(this.adminUserWrapper.statusID === false){
       this.adminUserWrapper.statusID = 0
     }else if(this.adminUserWrapper.statusID === true){
       this.adminUserWrapper.statusID = 1;
     }
+    delete this.adminUserWrapper.id;
+    delete this.adminUserWrapper.createdAt;
     this.subscriptions.add(
-      this._urlHttp.updateAdminUser(this.adminUserWrapper)
+      this._urlHttp.updateAdminUser(this.adminUserWrapper,adminId)
       .subscribe(
         (resp) => {
        this.redirectToAdminListing();

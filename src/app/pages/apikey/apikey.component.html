@@ -1,1 +1,29 @@
-<p>apikey works!</p>
+<app-page-titlebar
+  [pageTitle]="pageTitle"
+  [itemCount]="apikeyCount"
+  [button]="button"
+></app-page-titlebar>
+<!-- Main Section -->
+<div class="bg-white">
+  <nav class="navbar navbar-expand-sm bg-white justify-content-between ">
+    <div class="col-md-5 p-0">
+      <app-search-bar
+        [placeholder]="'Search by  Name'"
+        (searchChange)="onSearchChange($event)"
+      ></app-search-bar>
+      
+    </div>
+  
+  </nav>
+<app-apikey-listing
+[apikeyList] = "apikeyList"
+(statusUpdate)="onStatusUpdate($event)"
+></app-apikey-listing>
+<app-pagination
+  *ngIf="apikeyCount"
+  [total]="apikeyCount"
+  [currentPage]="currentPage"
+  (pageChange)="onPageChange($event)"
+>
+</app-pagination>
+</div>
