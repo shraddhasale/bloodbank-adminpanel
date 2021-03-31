@@ -20,7 +20,7 @@ const routes: Routes = [
           )
       },
       {
-        path: 'role',
+        path: 'roles',
         loadChildren: () =>
           import('../pages/role/role.module').then(
             (m) => m.RoleModule
@@ -52,6 +52,20 @@ const routes: Routes = [
         loadChildren: () =>
           import('../pages/blood-bank/blood-bank.module').then(
             (m) => m.BloodBankModule
+          )
+      },
+      {
+        path: 'user-blood-bank-request',
+        loadChildren: () =>
+          import('../pages/user-blood-bank-request/user-blood-bank-request.module').then(
+            (m) => m.UserBloodBankRequestModule
+          )
+      },
+      {
+        path: 'user-blood-bank-donate',
+        loadChildren: () =>
+          import('../pages/user-blood-bank-donate/user-blood-bank-donate.module').then(
+            (m) => m.UserBloodBankDonateModule
           )
       },
     ]

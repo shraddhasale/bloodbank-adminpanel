@@ -1,0 +1,73 @@
+<form [formGroup]="bloodRequestForm" class="p-4 pb-0">
+  
+    <!-- endpoint-url and status -->
+    <div class="row">
+      <div class="form-group col-lg-6 required">
+        <label>User ID</label>
+        <ng-select
+        class="w-100 text-capitalize"
+        [multiple]="false" 
+        [items]="bloodUserList" 
+        bindLabel="firstName"
+        bindValue="id"
+        [searchable]="false"
+        formControlName="userID"
+      ></ng-select>
+      </div>
+      <div class="form-group col-lg-6 mt-4 d-flex justify-content-end">
+        <label class="switchToggle">
+            <input type="checkbox" formControlName="statusID" />
+            <span class="switchSlider"></span>
+            </label>
+      </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-6 required">
+          <label>Blood Bank ID</label>
+          <ng-select
+          class="w-100 text-capitalize"
+          [multiple]="false" 
+          [items]="bloodBankList" 
+          bindLabel="firstName"
+          bindValue="id"
+          [searchable]="false"
+          formControlName="bloodBankID"
+        ></ng-select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-6 required">
+          <label>Request For</label>
+          <input type="text" class="form-control" formControlName="requestFor" />
+        </div>
+    </div>
+      <div class="row">
+        <div class="form-group col-lg-6 required">
+          <label>isHospitalize</label>
+          <input type="text" class="form-control" formControlName="isHospitalize" />
+        </div>
+      </div>
+      
+    
+  </form>
+  
+  <!-- Footer -->
+  <div class="footer clearfix  p-4">
+    <button
+      type="button"
+      (click)="onBackClick()"
+      class="btn btn-outline-primary font-weight-bold float-left px-4"
+    >
+      BACK
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary font-weight-bold float-right px-4"
+      [ngClass]="{ disabled: bloodRequestForm.invalid }"
+      [disabled]="bloodRequestForm.invalid"
+      (click)="onSubmit()"
+    >
+      SAVE
+    </button>
+  </div>
+  

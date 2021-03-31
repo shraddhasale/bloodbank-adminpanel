@@ -57,9 +57,6 @@ export class AddUsersComponent implements OnInit {
   }
 
   onUserSubmit(userDetails) {
-    
-    console.log(userDetails);
-    
     this._spinner.show(`Saving user ${userDetails.firstName}${userDetails.lastName}...`);
     if(userDetails.statusID === false){
       userDetails.statusID = 0

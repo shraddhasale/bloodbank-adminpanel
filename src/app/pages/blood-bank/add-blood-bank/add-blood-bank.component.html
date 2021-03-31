@@ -1,1 +1,8 @@
-<p>add-blood-bank works!</p>
+<main class="main-section bg-white float-left w-100">
+    <app-blood-bank-form
+    [bloodBankWrapper]="bloodBankWrapper" 
+    (submit)="onBloodBankSubmit($event)"
+    (back)="redirectToBloodBankListing()"
+    > 
+    </app-blood-bank-form>
+</main>

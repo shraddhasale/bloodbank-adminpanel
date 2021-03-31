@@ -10731,7 +10731,7 @@
         },
         users: {
           fetchAll: '/user',
-          fetchById: '/user/asddasdas',
+          fetchById: '/user',
           count: '/user/count',
           create: '/user',
           update: '/user',
@@ -10745,6 +10745,41 @@
           fetchById: '/role',
           update: '/role',
           "delete": '/role'
+        },
+        adminUsers: {
+          fetchAll: '/adminuser',
+          create: '/adminuser',
+          fetchById: '/adminuser',
+          update: '/adminuser',
+          "delete": '/adminuser'
+        },
+        apiKey: {
+          fetchAll: '/apikey',
+          create: '/apikey',
+          fetchById: '/apikey',
+          update: '/apikey',
+          "delete": '/apikey'
+        },
+        donate: {
+          fetchAll: '/userbloodbankdonate',
+          create: '/userbloodbankdonate',
+          fetchById: '/userbloodbankdonate',
+          update: '/userbloodbankdonate',
+          "delete": '/userbloodbankdonate'
+        },
+        bloodRequest: {
+          fetchAll: '/userbloodbankrequest',
+          create: '/userbloodbankrequest',
+          fetchById: '/userbloodbankrequest',
+          update: '/userbloodbankrequest',
+          "delete": '/userbloodbankrequest'
+        },
+        bloodBank: {
+          fetchall: '/bloodbank',
+          create: '/bloodbank',
+          fetchById: '/bloodbank',
+          update: '/bloodbank',
+          "delete": '/bloodbank'
         }
       }; // Status Enum for all modules
 

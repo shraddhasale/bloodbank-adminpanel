@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute,NavigationEnd } from '@angular/router';
 import { SidebarMenuI } from '../menubar/models/menubar.model';
 
@@ -12,25 +12,63 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./menubar.component.scss']
 })
 export class MenubarComponent implements OnInit {
-  showMenu: any;
+  isActive: boolean;
+  collapsed: boolean;
+  showMenu: string;
+  pushRightClass: string;
   menuItems = sidebarMenu;
-  subMenuSelected: string = '';
+  subMenuSelected: string;
+
   subscriptions: Subscription = new Subscription();
+
+  @Output() collapsedEvent = new EventEmitter<boolean>();
   constructor(
-    public readonly router: Router,
-    private readonly _route: ActivatedRoute
-  ) { 
+    public router: Router,
+    private _route: ActivatedRoute
+  ) {
     this.subscriptions.add(this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.setLocalAsUrl(val.urlAfterRedirects);
+      }
+      if (
+        val instanceof NavigationEnd &&
+        window.innerWidth <= 992 &&
+        this.isToggled()
+      ) {
+        this.toggleSidebar();
       }
     })
     );
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.isActive = false;
+    this.collapsed = false;
+    this.pushRightClass = 'push-right';
+    this.getDataFromLocalStorage();
   }
-
+  
+  /**
+   *@description calls for getting selectedMenu and subMenu from localStorage
+   *
+   * @memberof SidebarComponent
+   */
+   getDataFromLocalStorage() {
+    if (localStorage.getItem(LOCAL_STORAGE_KEY.navigation.menuSelected)) {
+      this.showMenu = localStorage.getItem(
+        LOCAL_STORAGE_KEY.navigation.menuSelected
+      );
+    } else {
+      let redirectUrl =
+        '/' + this._route.snapshot['_routerState'].url.split('/')[1];
+      this.setLocalAsUrl(redirectUrl);
+    }
+    if (localStorage.getItem(LOCAL_STORAGE_KEY.navigation.subMenuSelected)) {
+      this.subMenuSelected = localStorage.getItem(
+        LOCAL_STORAGE_KEY.navigation.subMenuSelected
+      );
+    }
+  }
   /**
    *@description it sets localStorage if any redirection of Url occurs
    *
@@ -68,6 +106,29 @@ export class MenubarComponent implements OnInit {
     this.showMenu = menu.name;
     this.setLocalStorageForMenu();
     this.router.navigate([menu.routerLink]);
+    this.subMenuSelected = '0';
+  }
+  toggleSidebar() {
+    const dom: any = document.querySelector('body');
+    dom.classList.toggle(this.pushRightClass);
+  }
+  isToggled(): boolean {
+    const dom: Element = document.querySelector('body');
+    return dom.classList.contains(this.pushRightClass);
+  }
+  /**
+   * @description calls when nested menu is clicked
+   *
+   * @param {*} element
+   * @memberof SidebarComponent
+   */
+   addExpandClass(element: any) {
+    if (element === this.showMenu) {
+      this.showMenu = '0';
+    } else {
+      this.showMenu = element;
+    }
+    this.setLocalStorageForMenu();
     this.subMenuSelected = '0';
   }
 }

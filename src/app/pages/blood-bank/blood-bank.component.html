@@ -1,1 +1,29 @@
-<p>blood-bank works!</p>
+<app-page-titlebar
+  [pageTitle]="pageTitle"
+  [itemCount]="bloodbankCount"
+  [button]="button"
+></app-page-titlebar>
+<!-- Main Section -->
+<div class="bg-white">
+  <nav class="navbar navbar-expand-sm bg-white justify-content-between ">
+    <div class="col-md-5 p-0">
+      <app-search-bar
+        [placeholder]="'Search by  Name'"
+        (searchChange)="onSearchChange($event)"
+      ></app-search-bar>
+      
+    </div>
+  
+  </nav>
+<app-blood-bank-listing
+[bloodbankList] = "bloodbankList"
+(statusUpdate)="onStatusUpdate($event)"
+></app-blood-bank-listing>
+<app-pagination
+  *ngIf="bloodbankCount"
+  [total]="bloodbankCount"
+  [currentPage]="currentPage"
+  (pageChange)="onPageChange($event)"
+>
+</app-pagination>
+</div>

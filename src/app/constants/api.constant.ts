@@ -45,6 +45,28 @@ export const API_ENDPOINT = {
     fetchById:'/apikey',
     update:'/apikey',
     delete: '/apikey',
+  },
+  donate:{
+    fetchAll: '/userbloodbankdonate', //Get 
+    create: '/userbloodbankdonate', //post
+    fetchById:'/userbloodbankdonate',
+    update:'/userbloodbankdonate',
+    delete: '/userbloodbankdonate',
+  },
+  bloodRequest:{
+    fetchAll: '/userbloodbankrequest', //Get 
+    create: '/userbloodbankrequest', //post
+    fetchById:'/userbloodbankrequest',
+    update:'/userbloodbankrequest',
+    delete: '/userbloodbankrequest',
+  },
+  bloodBank:{
+    fetchall:'/bloodbank',
+    
+    create: '/bloodbank', //post
+    fetchById:'/bloodbank',
+    update:'/bloodbank',
+    delete: '/bloodbank',
   }
 };
 

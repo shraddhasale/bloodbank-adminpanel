@@ -1,0 +1,27 @@
+<app-page-titlebar
+  [pageTitle]="pageTitle"
+  [itemCount]="userRequestCount"
+  [button]="button"
+></app-page-titlebar>
+<!-- Main Section -->
+<div class="bg-white">
+  <nav class="navbar navbar-expand-sm bg-white justify-content-between ">
+    <div class="col-md-5 p-0">
+      <app-search-bar
+        [placeholder]="'Search by  Name'"
+        (searchChange)="onSearchChange($event)"
+      ></app-search-bar>
+    </div>
+  </nav>
+<app-user-blood-bank-request-listing
+[userRequestList]="userRequestList"
+(statusUpdate)="onStatusUpdate($event)"
+></app-user-blood-bank-request-listing>
+<app-pagination
+  *ngIf="userRequestCount"
+  [total]="userRequestCount"
+  [currentPage]="currentPage"
+  (pageChange)="onPageChange($event)"
+>
+</app-pagination>
+</div>

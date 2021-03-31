@@ -78,12 +78,8 @@ export class UrlHttpsService {
     );
   }
   /**
-   * @description fetch all users as per filter
-   * @param {number} [pageSize=API_CONFIG.pageSize]
-   * @param {number} [currentPage=1]
-   * @param {object} [where={}]
-   * @returns {Observable<any>}
-   * @memberof UsersHttpService
+   * @description fetch all Role as per filter
+   
    */
    fetchAllRole(): Observable<any> {
     return this._http.get<any>(

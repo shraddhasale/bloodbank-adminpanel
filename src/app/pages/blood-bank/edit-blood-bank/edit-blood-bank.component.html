@@ -1,1 +1,10 @@
-<p>edit-blood-bank works!</p>
+<main class="main-section bg-white float-left w-100">
+    <ng-container *ngIf="bloodBankWrapper">
+    <app-blood-bank-form
+    [bloodBankWrapper]="bloodBankWrapper" 
+    (submit)="onBloodBankSubmit($event)"
+    (back)="redirectToBloodBankListing()"
+    > 
+    </app-blood-bank-form>
+    </ng-container>
+</main>

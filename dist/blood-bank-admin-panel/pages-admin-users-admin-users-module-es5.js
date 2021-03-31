@@ -537,9 +537,11 @@
             }));
           }
         }, {
-          key: "onRoleSubmit",
-          value: function onRoleSubmit() {
+          key: "onAdminUserSubmit",
+          value: function onAdminUserSubmit() {
             var _this2 = this;
+
+            var adminId = this.adminUserWrapper.id;
 
             if (this.adminUserWrapper.statusID === false) {
               this.adminUserWrapper.statusID = 0;
@@ -547,7 +549,9 @@
               this.adminUserWrapper.statusID = 1;
             }
 
-            this.subscriptions.add(this._urlHttp.updateAdminUser(this.adminUserWrapper).subscribe(function (resp) {
+            delete this.adminUserWrapper.id;
+            delete this.adminUserWrapper.createdAt;
+            this.subscriptions.add(this._urlHttp.updateAdminUser(this.adminUserWrapper, adminId).subscribe(function (resp) {
               _this2.redirectToAdminListing();
             }, function (err) {
               _this2._toast.error(err.error.message, 'Admin User');
@@ -587,7 +591,7 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "app-admin-users-form", 1);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("submit", function EditAdminUsersComponent_Template_app_admin_users_form_submit_1_listener() {
-              return ctx.onRoleSubmit();
+              return ctx.onAdminUserSubmit();
             })("back", function EditAdminUsersComponent_Template_app_admin_users_form_back_1_listener() {
               return ctx.redirectToAdminListing();
             });
@@ -1185,8 +1189,8 @@
 
         }, {
           key: "updateAdminUser",
-          value: function updateAdminUser(reqBody) {
-            return this._http.put(this.baseUrl + _const_api_constant__WEBPACK_IMPORTED_MODULE_3__["API_ENDPOINT"].adminUsers.update + "/".concat(reqBody.id), reqBody);
+          value: function updateAdminUser(reqBody, adminId) {
+            return this._http.put(this.baseUrl + _const_api_constant__WEBPACK_IMPORTED_MODULE_3__["API_ENDPOINT"].adminUsers.update + "/".concat(adminId), reqBody);
           }
           /**
            * delete endpoint

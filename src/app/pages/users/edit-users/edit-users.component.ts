@@ -14,7 +14,7 @@ import { ToastService } from '@shared/services/toast.service';
   styleUrls: ['./edit-users.component.scss']
 })
 export class EditUsersComponent implements OnInit {
-
+  readonly pageTitle = "Edit User"
   userWrapper: UserI;
   userAdminID:string;
   private subscriptions: Subscription = new Subscription();

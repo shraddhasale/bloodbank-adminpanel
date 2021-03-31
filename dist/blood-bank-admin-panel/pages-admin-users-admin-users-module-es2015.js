@@ -272,14 +272,17 @@ class EditAdminUsersComponent {
             this._toast.error(err.error.message, 'Admin User');
         }));
     }
-    onRoleSubmit() {
+    onAdminUserSubmit() {
+        let adminId = this.adminUserWrapper.id;
         if (this.adminUserWrapper.statusID === false) {
             this.adminUserWrapper.statusID = 0;
         }
         else if (this.adminUserWrapper.statusID === true) {
             this.adminUserWrapper.statusID = 1;
         }
-        this.subscriptions.add(this._urlHttp.updateAdminUser(this.adminUserWrapper)
+        delete this.adminUserWrapper.id;
+        delete this.adminUserWrapper.createdAt;
+        this.subscriptions.add(this._urlHttp.updateAdminUser(this.adminUserWrapper, adminId)
             .subscribe((resp) => {
             this.redirectToAdminListing();
         }, err => {
@@ -298,7 +301,7 @@ EditAdminUsersComponent.ɵfac = function EditAdminUsersComponent_Factory(t) { re
 EditAdminUsersComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: EditAdminUsersComponent, selectors: [["app-edit-admin-users"]], decls: 2, vars: 1, consts: [[1, "main-section", "bg-white", "float-left", "w-100"], [3, "adminUserWrapper", "submit", "back"]], template: function EditAdminUsersComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "main", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "app-admin-users-form", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("submit", function EditAdminUsersComponent_Template_app_admin_users_form_submit_1_listener() { return ctx.onRoleSubmit(); })("back", function EditAdminUsersComponent_Template_app_admin_users_form_back_1_listener() { return ctx.redirectToAdminListing(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("submit", function EditAdminUsersComponent_Template_app_admin_users_form_submit_1_listener() { return ctx.onAdminUserSubmit(); })("back", function EditAdminUsersComponent_Template_app_admin_users_form_back_1_listener() { return ctx.redirectToAdminListing(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
@@ -587,8 +590,8 @@ class AdminuserHttpService {
     /**
      *updates endpoint
     */
-    updateAdminUser(reqBody) {
-        return this._http.put(this.baseUrl + _const_api_constant__WEBPACK_IMPORTED_MODULE_3__["API_ENDPOINT"].adminUsers.update + `/${reqBody.id}`, reqBody);
+    updateAdminUser(reqBody, adminId) {
+        return this._http.put(this.baseUrl + _const_api_constant__WEBPACK_IMPORTED_MODULE_3__["API_ENDPOINT"].adminUsers.update + `/${adminId}`, reqBody);
     }
     /**
      * delete endpoint

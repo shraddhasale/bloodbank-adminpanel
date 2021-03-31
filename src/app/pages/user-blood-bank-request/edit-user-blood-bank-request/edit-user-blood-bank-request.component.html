@@ -1,0 +1,10 @@
+<main class="main-section bg-white float-left w-100">
+    <ng-container *ngIf="bloodRequestWrapper">
+    <app-user-blood-bank-request-form
+    [bloodRequestWrapper]="bloodRequestWrapper" 
+    (submit)="onUserBloodRequestSubmit()"
+    (back)="redirectToAdminListing()"
+    > 
+    </app-user-blood-bank-request-form>
+    </ng-container>
+</main>
