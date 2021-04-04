@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - name: post deployment
+      - name: pre deployment
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: cd bloodbank-adminpanel && pm2 stop bloodbank-admin
