@@ -23,7 +23,7 @@ jobs:
       - name: post deployment
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: cd bloodbank-adminpanel && kill $(lsof -t -i:4200) && ng serve --host=0.0.0.0 --disable-host-check
+          command: cd bloodbank-adminpanel && pm2 reload bloodbank-admin
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           privateKey: ${{ secrets.KEY }}
