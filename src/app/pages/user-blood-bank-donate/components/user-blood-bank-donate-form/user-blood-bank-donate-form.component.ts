@@ -6,6 +6,7 @@ import set from 'lodash.set';
 import { StatusEnum } from '@const/api.constant';
 import { UserBloodBankDonateI} from '../../models/user-blood-bank-donate';
 import { UserBloodBankDonateHttpService } from '../../services/user-blood-bank-donate-http.service';
+import { PAID_STATUS_LIST } from '../../constants/donate.constant'
 @Component({
   selector: 'app-user-blood-bank-donate-form',
   templateUrl: './user-blood-bank-donate-form.component.html',
@@ -21,7 +22,7 @@ export class UserBloodBankDonateFormComponent implements OnInit {
   bloodBankList = [];
   bloodUserList = [];
   roleId:any = [];
-  
+  readonly paidList = PAID_STATUS_LIST
   
   constructor(
     private _formBuilder: FormBuilder,
@@ -43,7 +44,7 @@ export class UserBloodBankDonateFormComponent implements OnInit {
       userID: [get(this.bloodDonateWrapper, ['userID'], ''), Validators.required],
       bloodBankID: [get(this.bloodDonateWrapper, ['bloodBankID'], ''), Validators.required],
       paidAmount: [get(this.bloodDonateWrapper, ['paidAmount'], ''), Validators.required],
-      paidStatus: [get(this.bloodDonateWrapper, ['paidStatus'], ''), Validators.required],
+      paidStatus: [get(this.bloodDonateWrapper, ['paidStatus'], 0), Validators.required],
       statusID: [
         get(this.bloodDonateWrapper, ['statusID'],StatusEnum.ACTIVE)],
      
@@ -85,6 +86,12 @@ export class UserBloodBankDonateFormComponent implements OnInit {
        this.bloodUserList = resp.data;
       })
     ) 
+  }
+  paidStatus(status){
+    console.log(status);
+    this.bloodDonateForm.patchValue({
+      paidStatus:status.key
+    })
   }
 /**
    * @description emit back click

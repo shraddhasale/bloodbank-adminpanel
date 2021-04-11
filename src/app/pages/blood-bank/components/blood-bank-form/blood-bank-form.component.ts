@@ -34,15 +34,16 @@ export class BloodBankFormComponent implements OnInit {
       firstName: [get(this.bloodBankWrapper, ['firstName'], ''), Validators.required],
       lastName: [get(this.bloodBankWrapper, ['lastName'], ''), Validators.required],
       phoneNumber: [get(this.bloodBankWrapper, ['phoneNumber'], ''), Validators.required],
-      email: [get(this.bloodBankWrapper, ['email'], ''), Validators.required],
+      email: [get(this.bloodBankWrapper, ['email'], ''), [Validators.required, Validators.email]],
       address: this._formBuilder.group({
-        country:[get(this.bloodBankWrapper,['country'], '')],
-        state:[get(this.bloodBankWrapper, ['state'], '')],
-        city:[get(this.bloodBankWrapper, ['city'], '')],
-        pinCode:[get(this.bloodBankWrapper, ['pinCode'], '')],
-        landMark:[get(this.bloodBankWrapper, ['landMark'], '')],
-        location:[get(this.bloodBankWrapper, ['location'], '')],
+        country:[get(this.bloodBankWrapper,'address.country', '')],
+         state:[get(this.bloodBankWrapper, 'address.state', '')],
+        city:[get(this.bloodBankWrapper, 'address.city', '')],
+        pinCode:[get(this.bloodBankWrapper, 'address.pinCode', '')],
+        landMark:[get(this.bloodBankWrapper, 'address.landMark', '')],
+        location:[get(this.bloodBankWrapper, 'address.location', '')],
       }),
+      thumbnail:[get(this.bloodBankWrapper, ['thumbnail'], 'string')],
       statusID: [
         get(this.bloodBankWrapper, ['statusID'],StatusEnum.ACTIVE)],
     });
@@ -56,18 +57,7 @@ export class BloodBankFormComponent implements OnInit {
     this.submit.emit(this.bloodBankForm.value);
   }
 
-  /**
-   * @description map form value to wrapper
-   * @memberof EndpointFormComponent
-   */
-  mapToWrapper() {
-    let formValue = this.bloodBankForm.getRawValue();
-    set(this.bloodBankWrapper, ['firstName'], formValue['firstName']);
-    set(this.bloodBankWrapper, ['lastName'], formValue['lastName']);
-    set(this.bloodBankWrapper, ['phoneNumber'], formValue['phoneNumber']);
-    set(this.bloodBankWrapper, ['email'], formValue['email']);
-    set(this.bloodBankWrapper, ['statusID'], formValue['statusID']);
-   }
+  
 
  
 /**

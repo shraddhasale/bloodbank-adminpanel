@@ -41,12 +41,23 @@
           <input type="text" class="form-control" formControlName="requestFor" />
         </div>
     </div>
-      <div class="row">
-        <div class="form-group col-lg-6 required">
-          <label>isHospitalize</label>
-          <input type="text" class="form-control" formControlName="isHospitalize" />
+    <div class="row">
+      <div class="form-group col-lg-6 required">
+        <div  class="custom-control custom-checkbox custom-control-inline pt-2">
+          <input
+              type="checkbox"
+              class="custom-control-input"
+              id="isHospitalize"
+              name="isHospitalize"
+              formControlName="isHospitalize"
+          />
+          <label
+            class="custom-control-label pl-2"
+            for="isHospitalize"
+          >isHospitalize</label>
         </div>
       </div>
+    </div>
       
     
   </form>

@@ -15,7 +15,13 @@ import { AddUserBloodBankRequestComponent } from './add-user-blood-bank-request/
 import {UserBloodBankRequestHttpService} from '../user-blood-bank-request/services/user-blood-bank-request-http.service'
 
 @NgModule({
-  declarations: [UserBloodBankRequestComponent, UserBloodBankRequestFormComponent, UserBloodBankRequestListingComponent, EditUserBloodBankRequestComponent, AddUserBloodBankRequestComponent],
+  declarations: [
+    UserBloodBankRequestComponent, 
+    UserBloodBankRequestFormComponent, 
+    UserBloodBankRequestListingComponent, 
+    EditUserBloodBankRequestComponent, 
+    AddUserBloodBankRequestComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,

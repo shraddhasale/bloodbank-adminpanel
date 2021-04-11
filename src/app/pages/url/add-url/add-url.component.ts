@@ -8,12 +8,16 @@ import { UrlHttpsService } from '../services/url-https.service'
 import { StatusEnum } from '@const/api.constant';
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { URL_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-add-url',
   templateUrl: './add-url.component.html',
   styleUrls: ['./add-url.component.scss']
 })
 export class AddUrlComponent implements OnInit {
+  readonly breadcrumbList: BreadcrumbI[] = URL_BREADCRUMSLIST.add;
+  readonly pageTitle = 'Add New  User';
   urlWrapper: EndpointI;
   private subscriptions: Subscription = new Subscription();
 
@@ -40,7 +44,6 @@ export class AddUrlComponent implements OnInit {
 
   onUrlSubmit() {
     this._spinner.show(`Saving url ${this.urlWrapper.name}...`);
-    // console.log(this.urlWrapper);
     if(this.urlWrapper.statusID === false){
       this.urlWrapper.statusID = 0
     }else if(this.urlWrapper.statusID === true){

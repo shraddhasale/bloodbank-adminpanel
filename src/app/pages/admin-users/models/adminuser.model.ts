@@ -6,5 +6,6 @@ export interface AdminuserI {
     lastName: string,
     phoneNumber: string,
     password?:string,
+    roleID:[],
     statusID: number | boolean
 }

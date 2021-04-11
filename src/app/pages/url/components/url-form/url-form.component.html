@@ -34,8 +34,8 @@
         ></ng-select>
       </div>
     </div>
-    <!-- Verb -->
-    <div class="row">
+     <!-- Verb -->
+     <div class="row">
       <div class="col-8 form-group required">
         <label>Role</label>
         <ng-select
@@ -43,14 +43,16 @@
           [multiple]="true" 
           [items]="roleList" 
           bindLabel="name"
-          bindValue="name"
+          bindValue="id"
           formControlName="roleID"
-          (change)="onRoleChange($event)"
           [searchable]="true"
         ></ng-select>
+        
       </div>
     </div>
   </form>
+   
+ 
   
   <!-- Footer -->
   <div class="footer clearfix  p-4">
@@ -65,7 +67,7 @@
       type="button"
       class="btn btn-primary font-weight-bold float-right px-4"
       [ngClass]="{ disabled: urlForm.invalid }"
-      [disabled]="urlForm.invalid || roleId.length === 0"
+      [disabled]="urlForm.invalid"
       (click)="onSubmit()"
     >
       SAVE

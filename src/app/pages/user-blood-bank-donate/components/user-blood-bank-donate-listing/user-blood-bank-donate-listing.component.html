@@ -5,9 +5,10 @@
       <thead>
         <tr class="border-top border-bottom">
           <th class="font-weight-normal align-middle  pl-3">Date</th>
-          <th class="font-weight-normal align-middle  pl-3">User ID</th>
+          <th class="font-weight-normal align-middle  pl-3">User Name</th>
+          <th class="font-weight-normal align-middle  pl-3">Blood Bank User</th>
           <th class="font-weight-normal align-middle  pl-3">Paid Amount</th>
-          <th class="font-weight-normal align-middle  pl-3">Email Id</th>
+          <th class="font-weight-normal align-middle  pl-3">Paid Status</th>
           <th class="font-weight-normal align-middle px-3" style="width:120px">Action</th>
         </tr>
       </thead>
@@ -17,7 +18,16 @@
            {{list?.createdAt | date: 'dd/MM/yyyy' }}
           </td>
           <td class="align-middle  pl-3">
-            {{list?.userID}}
+            <a 
+                [routerLink]="['/users/edit/',list?.userID]" 
+                target= "_blank"
+              >{{list?.userDetails?.firstName}} {{list?.userDetails?.lastName}}</a>
+           </td>
+           <td class="align-middle  pl-3">
+            <a 
+                [routerLink]="['/blood-bank/edit/',list?.bloodBankID]" 
+                target= "_blank"
+              >{{list?.bloodBankDetails?.firstName}} {{list?.bloodBankDetails?.lastName}}</a>
            </td>
           <td class="align-middle  pl-3">
             {{list?.paidAmount}}

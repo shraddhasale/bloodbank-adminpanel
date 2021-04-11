@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import get from 'lodash.get';
 import set from 'lodash.set';
 import { EndpointI } from '../../models/endpoint.model'
 import {VERB_TYPE_LIST} from '../../constants/endpoint.constant';
 import { UrlHttpsService } from '../../services/url-https.service';
-import { StatusEnum } from '@const/api.constant';
+import { API_CONFIG, StatusEnum } from '@const/api.constant';
 @Component({
   selector: 'app-url-form',
   templateUrl: './url-form.component.html',
@@ -22,7 +22,11 @@ export class UrlFormComponent implements OnInit {
   roleList = [];
   roleId:any = [];
   readonly VerbList: string[] = VERB_TYPE_LIST
-  
+  readonly pageTitle = 'URL';
+ 
+
+  roleList$: Observable<any>;
+  currentPage = 1;
   constructor(
     private _formBuilder: FormBuilder,
     private _urlhttps: UrlHttpsService
@@ -30,19 +34,8 @@ export class UrlFormComponent implements OnInit {
 
   ngOnInit() {
     this.initEndpointForm();
-    this.getRoleList();
-    // if(this.urlWrapper.id){
-    //   this._urlhttps.fetchAllRole().subscribe(resp=>{
-    //     resp['data'].map(res =>{
-    //      this.urlWrapper.roleID.map(resp =>{
-    //         console.log(resp);
-            
-    //       })
-    //     })
-        
-    //   })
-    // }
-  }
+   this.getRoleList();
+ }
   
 
   /**
@@ -57,7 +50,7 @@ export class UrlFormComponent implements OnInit {
         Validators.required
       ],
       verb: [get(this.urlWrapper, ['verb'], ''),Validators.required],
-      roleID: [get(this.urlWrapper, ['roleID'], '')],
+      roleID: [get(this.urlWrapper, ['roleID'], ''), Validators.required],
       statusID: [get(this.urlWrapper, ['statusID'], StatusEnum.ACTIVE)],
     });
   }
@@ -81,7 +74,7 @@ export class UrlFormComponent implements OnInit {
     set(this.urlWrapper, ['endPoint'], formValue['endPoint']);
     set(this.urlWrapper, ['verb'], formValue['verb']);
     set(this.urlWrapper, ['statusID'], formValue['statusID']);
-    set(this.urlWrapper, ['roleID'], this.roleId);
+    set(this.urlWrapper, ['roleID'], formValue['roleID']);
   }
 
   getRoleList() {
@@ -91,13 +84,7 @@ export class UrlFormComponent implements OnInit {
       })
     )  
   }
-  onRoleChange(role){
-    if(role){
-      this.roleId = role.map(resp=>{
-        return resp.id
-       })
-    }
-  }
+
 /**
    * @description emit back click
    * @memberof EndpointFormComponent

@@ -9,16 +9,18 @@ import { API_CONFIG} from '@const/api.constant';
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
 import { StatusEnum } from '@const/api.constant';
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { ROLE_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-role',
   templateUrl: './role.component.html',
   styleUrls: ['./role.component.scss']
 })
 export class RoleComponent implements OnInit {
-
+  readonly breadcrumbList: BreadcrumbI[] = ROLE_BREADCRUMSLIST.listing;
   readonly button: ButtonOptionsI = {
     label: 'Add New Role',
-    routerLink: ['/role/add']
+    routerLink: ['/roles/add']
   };
   readonly pageTitle = 'Role';
   readonly pageSize = API_CONFIG.pageSize;
@@ -64,9 +66,7 @@ export class RoleComponent implements OnInit {
     this.getUserList()
   }
   onStatusUpdate(role){
-    console.log(role);
-    
-    this.subscriptions.add(
+     this.subscriptions.add(
       this._rolehttps.deleteEndpoint(role).subscribe(
         (resp: any) => {
           this.getUserList();

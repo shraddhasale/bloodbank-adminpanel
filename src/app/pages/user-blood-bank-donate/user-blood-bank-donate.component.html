@@ -1,5 +1,6 @@
 <app-page-titlebar
   [pageTitle]="pageTitle"
+  [breadcrumbList]="breadcrumbList"
   [itemCount]="userDonateCount"
   [button]="button"
 ></app-page-titlebar>
@@ -13,16 +14,15 @@
       ></app-search-bar>
     </div>
   </nav>
-  {{userDonateList}}
 <app-user-blood-bank-donate-listing
 [userDonateList]="userDonateList"
 (statusUpdate)="onStatusUpdate($event)"
 ></app-user-blood-bank-donate-listing>
-<!-- <app-pagination
+<app-pagination
   *ngIf="userDonateCount"
   [total]="userDonateCount"
   [currentPage]="currentPage"
   (pageChange)="onPageChange($event)"
 >
-</app-pagination> -->
+</app-pagination>
 </div>

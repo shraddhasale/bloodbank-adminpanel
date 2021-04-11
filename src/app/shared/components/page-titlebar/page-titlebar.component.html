@@ -1,5 +1,20 @@
 <div class="page-titlebar">
-  
+  <!-- Breadcrumb Section -->
+  <ul class="breadcrumb">
+    <li class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbList">
+      <ng-container
+        *ngIf="
+          breadcrumb.routerLink && breadcrumb.routerLink.length > 0;
+          else elseTemplate
+        "
+      >
+        <a [routerLink]="breadcrumb.routerLink">{{ breadcrumb.name }}</a>
+      </ng-container>
+      <ng-template #elseTemplate>
+        {{ breadcrumb.name }}
+      </ng-template>
+    </li>
+  </ul>
   <div class="row title-bar">
     <!-- Page Title Section -->
     <div class="col-sm-6 page-title">

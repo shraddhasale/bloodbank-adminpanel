@@ -7,14 +7,16 @@ import { AdminuserI} from '../models/adminuser.model';
 import { AdminuserHttpService } from '../services/adminuser-http.service';
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
-
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { ADMIN_USERS_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-edit-admin-users',
   templateUrl: './edit-admin-users.component.html',
   styleUrls: ['./edit-admin-users.component.scss']
 })
 export class EditAdminUsersComponent implements OnInit {
-
+  readonly breadcrumbList: BreadcrumbI[] = ADMIN_USERS_BREADCRUMSLIST.edit;
+  readonly pageTitle = 'Edit Admin User';
   adminUserWrapper: AdminuserI;
   userAdminID:string;
   private subscriptions: Subscription = new Subscription();

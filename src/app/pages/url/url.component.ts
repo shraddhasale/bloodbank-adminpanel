@@ -9,12 +9,15 @@ import { API_CONFIG} from '@const/api.constant';
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
 import { StatusEnum } from '@const/api.constant';
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { URL_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-url',
   templateUrl: './url.component.html',
   styleUrls: ['./url.component.scss']
 })
 export class UrlComponent implements OnInit {
+  readonly breadcrumbList: BreadcrumbI[] = URL_BREADCRUMSLIST.listing;
   readonly button: ButtonOptionsI = {
     label: 'Add New URL',
     routerLink: ['/urls/add']

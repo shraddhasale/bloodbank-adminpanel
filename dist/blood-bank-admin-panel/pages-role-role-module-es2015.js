@@ -227,15 +227,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "qCKp");
 /* harmony import */ var _const_api_constant__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @const/api.constant */ "al6W");
-/* harmony import */ var _services_role_http_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/role-http.service */ "2NEm");
-/* harmony import */ var _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @shared/services/toast.service */ "3WbM");
-/* harmony import */ var _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shared/services/spinner.service */ "ph+x");
-/* harmony import */ var _shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../shared/components/page-titlebar/page-titlebar.component */ "f+2y");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "1kSV");
-/* harmony import */ var _shared_components_search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../shared/components/search-bar/search-bar.component */ "dRJ3");
-/* harmony import */ var _components_role_listing_role_listing_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/role-listing/role-listing.component */ "Ehbm");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _shared_components_pagination_pagination_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../shared/components/pagination/pagination.component */ "NhFE");
+/* harmony import */ var _const_breadcrumb_constant__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @const/breadcrumb.constant */ "LTnQ");
+/* harmony import */ var _services_role_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services/role-http.service */ "2NEm");
+/* harmony import */ var _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shared/services/toast.service */ "3WbM");
+/* harmony import */ var _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @shared/services/spinner.service */ "ph+x");
+/* harmony import */ var _shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../shared/components/page-titlebar/page-titlebar.component */ "f+2y");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "1kSV");
+/* harmony import */ var _shared_components_search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../shared/components/search-bar/search-bar.component */ "dRJ3");
+/* harmony import */ var _components_role_listing_role_listing_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/role-listing/role-listing.component */ "Ehbm");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _shared_components_pagination_pagination_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../shared/components/pagination/pagination.component */ "NhFE");
+
 
 
 
@@ -264,9 +266,10 @@ class RoleComponent {
         this._rolehttps = _rolehttps;
         this._toast = _toast;
         this._spinner = _spinner;
+        this.breadcrumbList = _const_breadcrumb_constant__WEBPACK_IMPORTED_MODULE_3__["ROLE_BREADCRUMSLIST"].listing;
         this.button = {
             label: 'Add New Role',
-            routerLink: ['/role/add']
+            routerLink: ['/roles/add']
         };
         this.pageTitle = 'Role';
         this.pageSize = _const_api_constant__WEBPACK_IMPORTED_MODULE_2__["API_CONFIG"].pageSize;
@@ -305,7 +308,6 @@ class RoleComponent {
         this.getUserList();
     }
     onStatusUpdate(role) {
-        console.log(role);
         this.subscriptions.add(this._rolehttps.deleteEndpoint(role).subscribe((resp) => {
             this.getUserList();
             this._toast.success("Role Delete Sucessfully");
@@ -314,8 +316,8 @@ class RoleComponent {
         }));
     }
 }
-RoleComponent.ɵfac = function RoleComponent_Factory(t) { return new (t || RoleComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_role_http_service__WEBPACK_IMPORTED_MODULE_3__["RoleHttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_toast_service__WEBPACK_IMPORTED_MODULE_4__["ToastService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_5__["SpinnerService"])); };
-RoleComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RoleComponent, selectors: [["app-role"]], decls: 7, vars: 6, consts: [[3, "pageTitle", "itemCount", "button"], [1, "bg-white"], [1, "navbar", "navbar-expand-sm", "bg-white", "justify-content-between"], [1, "col-md-5", "p-0"], [3, "placeholder", "searchChange"], [3, "roleList", "statusUpdate"], [3, "total", "currentPage", "pageChange", 4, "ngIf"], [3, "total", "currentPage", "pageChange"]], template: function RoleComponent_Template(rf, ctx) { if (rf & 1) {
+RoleComponent.ɵfac = function RoleComponent_Factory(t) { return new (t || RoleComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_role_http_service__WEBPACK_IMPORTED_MODULE_4__["RoleHttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__["ToastService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_6__["SpinnerService"])); };
+RoleComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RoleComponent, selectors: [["app-role"]], decls: 7, vars: 7, consts: [[3, "pageTitle", "itemCount", "breadcrumbList", "button"], [1, "bg-white"], [1, "navbar", "navbar-expand-sm", "bg-white", "justify-content-between"], [1, "col-md-5", "p-0"], [3, "placeholder", "searchChange"], [3, "roleList", "statusUpdate"], [3, "total", "currentPage", "pageChange", 4, "ngIf"], [3, "total", "currentPage", "pageChange"]], template: function RoleComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-page-titlebar", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "nav", 2);
@@ -331,14 +333,14 @@ RoleComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComp
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, RoleComponent_app_pagination_6_Template, 1, 2, "app-pagination", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pageTitle", ctx.pageTitle)("itemCount", ctx.roleCount)("button", ctx.button);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pageTitle", ctx.pageTitle)("itemCount", ctx.roleCount)("breadcrumbList", ctx.breadcrumbList)("button", ctx.button);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("placeholder", "Search by  Name");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("roleList", ctx.roleList);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.roleCount);
-    } }, directives: [_shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_6__["PageTitlebarComponent"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbNavbar"], _shared_components_search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_8__["SearchBarComponent"], _components_role_listing_role_listing_component__WEBPACK_IMPORTED_MODULE_9__["RoleListingComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_10__["NgIf"], _shared_components_pagination_pagination_component__WEBPACK_IMPORTED_MODULE_11__["PaginationComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyb2xlLmNvbXBvbmVudC5zY3NzIn0= */"] });
+    } }, directives: [_shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_7__["PageTitlebarComponent"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__["NgbNavbar"], _shared_components_search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_9__["SearchBarComponent"], _components_role_listing_role_listing_component__WEBPACK_IMPORTED_MODULE_10__["RoleListingComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgIf"], _shared_components_pagination_pagination_component__WEBPACK_IMPORTED_MODULE_12__["PaginationComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyb2xlLmNvbXBvbmVudC5zY3NzIn0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](RoleComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -346,7 +348,7 @@ RoleComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComp
                 templateUrl: './role.component.html',
                 styleUrls: ['./role.component.scss']
             }]
-    }], function () { return [{ type: _services_role_http_service__WEBPACK_IMPORTED_MODULE_3__["RoleHttpService"] }, { type: _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_4__["ToastService"] }, { type: _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_5__["SpinnerService"] }]; }, null); })();
+    }], function () { return [{ type: _services_role_http_service__WEBPACK_IMPORTED_MODULE_4__["RoleHttpService"] }, { type: _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__["ToastService"] }, { type: _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_6__["SpinnerService"] }]; }, null); })();
 
 
 /***/ }),
@@ -593,12 +595,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "qCKp");
 /* harmony import */ var _const_api_constant__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @const/api.constant */ "al6W");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _services_role_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/role-http.service */ "2NEm");
-/* harmony import */ var _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shared/services/toast.service */ "3WbM");
-/* harmony import */ var _components_role_form_role_form_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/role-form/role-form.component */ "3Koi");
+/* harmony import */ var _const_breadcrumb_constant__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @const/breadcrumb.constant */ "LTnQ");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _services_role_http_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/role-http.service */ "2NEm");
+/* harmony import */ var _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @shared/services/toast.service */ "3WbM");
+/* harmony import */ var _shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../shared/components/page-titlebar/page-titlebar.component */ "f+2y");
+/* harmony import */ var _components_role_form_role_form_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/role-form/role-form.component */ "3Koi");
 
 // Rxjs
+
+
 
 
 
@@ -611,6 +617,8 @@ class AddRoleComponent {
         this._router = _router;
         this._urlHttp = _urlHttp;
         this._toast = _toast;
+        this.breadcrumbList = _const_breadcrumb_constant__WEBPACK_IMPORTED_MODULE_3__["ROLE_BREADCRUMSLIST"].add;
+        this.pageTitle = 'Add New Role';
         this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
     }
     ngOnInit() {
@@ -643,17 +651,19 @@ class AddRoleComponent {
         this.subscriptions.unsubscribe();
     }
 }
-AddRoleComponent.ɵfac = function AddRoleComponent_Factory(t) { return new (t || AddRoleComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_role_http_service__WEBPACK_IMPORTED_MODULE_4__["RoleHttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__["ToastService"])); };
-AddRoleComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AddRoleComponent, selectors: [["app-add-role"]], decls: 2, vars: 1, consts: [[1, "main-section", "bg-white", "float-left", "w-100"], [3, "roleWrapper", "submit", "back"]], template: function AddRoleComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "main", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "app-role-form", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("submit", function AddRoleComponent_Template_app_role_form_submit_1_listener() { return ctx.onRoleSubmit(); })("back", function AddRoleComponent_Template_app_role_form_back_1_listener() { return ctx.redirectToRoleListing(); });
+AddRoleComponent.ɵfac = function AddRoleComponent_Factory(t) { return new (t || AddRoleComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_role_http_service__WEBPACK_IMPORTED_MODULE_5__["RoleHttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_toast_service__WEBPACK_IMPORTED_MODULE_6__["ToastService"])); };
+AddRoleComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AddRoleComponent, selectors: [["app-add-role"]], decls: 3, vars: 3, consts: [[3, "pageTitle", "breadcrumbList"], [1, "main-section", "bg-white", "float-left", "w-100"], [3, "roleWrapper", "submit", "back"]], template: function AddRoleComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-page-titlebar", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "main", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "app-role-form", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("submit", function AddRoleComponent_Template_app_role_form_submit_2_listener() { return ctx.onRoleSubmit(); })("back", function AddRoleComponent_Template_app_role_form_back_2_listener() { return ctx.redirectToRoleListing(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pageTitle", ctx.pageTitle)("breadcrumbList", ctx.breadcrumbList);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("roleWrapper", ctx.roleWrapper);
-    } }, directives: [_components_role_form_role_form_component__WEBPACK_IMPORTED_MODULE_6__["RoleFormComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZGQtcm9sZS5jb21wb25lbnQuc2NzcyJ9 */"] });
+    } }, directives: [_shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_7__["PageTitlebarComponent"], _components_role_form_role_form_component__WEBPACK_IMPORTED_MODULE_8__["RoleFormComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZGQtcm9sZS5jb21wb25lbnQuc2NzcyJ9 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AddRoleComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -661,7 +671,7 @@ AddRoleComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
                 templateUrl: './add-role.component.html',
                 styleUrls: ['./add-role.component.scss']
             }]
-    }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }, { type: _services_role_http_service__WEBPACK_IMPORTED_MODULE_4__["RoleHttpService"] }, { type: _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__["ToastService"] }]; }, null); })();
+    }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }, { type: _services_role_http_service__WEBPACK_IMPORTED_MODULE_5__["RoleHttpService"] }, { type: _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_6__["ToastService"] }]; }, null); })();
 
 
 /***/ }),
@@ -678,12 +688,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditRoleComponent", function() { return EditRoleComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "qCKp");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _services_role_http_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/role-http.service */ "2NEm");
-/* harmony import */ var _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @shared/services/toast.service */ "3WbM");
-/* harmony import */ var _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shared/services/spinner.service */ "ph+x");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _components_role_form_role_form_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/role-form/role-form.component */ "3Koi");
+/* harmony import */ var _const_breadcrumb_constant__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @const/breadcrumb.constant */ "LTnQ");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _services_role_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/role-http.service */ "2NEm");
+/* harmony import */ var _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @shared/services/toast.service */ "3WbM");
+/* harmony import */ var _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @shared/services/spinner.service */ "ph+x");
+/* harmony import */ var _shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../shared/components/page-titlebar/page-titlebar.component */ "f+2y");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _components_role_form_role_form_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/role-form/role-form.component */ "3Koi");
 
 // Rxjs
 
@@ -694,11 +706,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function EditRoleComponent_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+
+
+function EditRoleComponent_ng_container_2_Template(rf, ctx) { if (rf & 1) {
     const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "app-role-form", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("submit", function EditRoleComponent_ng_container_1_Template_app_role_form_submit_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r2); const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r1.onRoleSubmit(); })("back", function EditRoleComponent_ng_container_1_Template_app_role_form_back_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r2); const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r3.redirectToRoleListing(); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "app-role-form", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("submit", function EditRoleComponent_ng_container_2_Template_app_role_form_submit_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r2); const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r1.onRoleSubmit(); })("back", function EditRoleComponent_ng_container_2_Template_app_role_form_back_1_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r2); const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r3.redirectToRoleListing(); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
 } if (rf & 2) {
@@ -713,6 +727,8 @@ class EditRoleComponent {
         this._roleHttp = _roleHttp;
         this._toast = _toast;
         this._spinner = _spinner;
+        this.breadcrumbList = _const_breadcrumb_constant__WEBPACK_IMPORTED_MODULE_2__["ROLE_BREADCRUMSLIST"].edit;
+        this.pageTitle = 'Edit Role';
         this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         this.roleID = this._route.snapshot.params.id;
     }
@@ -757,15 +773,17 @@ class EditRoleComponent {
         this._spinner.hide();
     }
 }
-EditRoleComponent.ɵfac = function EditRoleComponent_Factory(t) { return new (t || EditRoleComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_role_http_service__WEBPACK_IMPORTED_MODULE_3__["RoleHttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_toast_service__WEBPACK_IMPORTED_MODULE_4__["ToastService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_5__["SpinnerService"])); };
-EditRoleComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: EditRoleComponent, selectors: [["app-edit-role"]], decls: 2, vars: 1, consts: [[1, "main-section", "bg-white", "float-left", "w-100"], [4, "ngIf"], [3, "roleWrapper", "submit", "back"]], template: function EditRoleComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "main", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, EditRoleComponent_ng_container_1_Template, 2, 1, "ng-container", 1);
+EditRoleComponent.ɵfac = function EditRoleComponent_Factory(t) { return new (t || EditRoleComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_role_http_service__WEBPACK_IMPORTED_MODULE_4__["RoleHttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__["ToastService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_6__["SpinnerService"])); };
+EditRoleComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: EditRoleComponent, selectors: [["app-edit-role"]], decls: 3, vars: 3, consts: [[3, "pageTitle", "breadcrumbList"], [1, "main-section", "bg-white", "float-left", "w-100"], [4, "ngIf"], [3, "roleWrapper", "submit", "back"]], template: function EditRoleComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-page-titlebar", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "main", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, EditRoleComponent_ng_container_2_Template, 2, 1, "ng-container", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pageTitle", ctx.pageTitle)("breadcrumbList", ctx.breadcrumbList);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.roleWrapper);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _components_role_form_role_form_component__WEBPACK_IMPORTED_MODULE_7__["RoleFormComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJlZGl0LXJvbGUuY29tcG9uZW50LnNjc3MifQ== */"] });
+    } }, directives: [_shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_7__["PageTitlebarComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["NgIf"], _components_role_form_role_form_component__WEBPACK_IMPORTED_MODULE_9__["RoleFormComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJlZGl0LXJvbGUuY29tcG9uZW50LnNjc3MifQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](EditRoleComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -773,7 +791,7 @@ EditRoleComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
                 templateUrl: './edit-role.component.html',
                 styleUrls: ['./edit-role.component.scss']
             }]
-    }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }, { type: _services_role_http_service__WEBPACK_IMPORTED_MODULE_3__["RoleHttpService"] }, { type: _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_4__["ToastService"] }, { type: _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_5__["SpinnerService"] }]; }, null); })();
+    }], function () { return [{ type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] }, { type: _services_role_http_service__WEBPACK_IMPORTED_MODULE_4__["RoleHttpService"] }, { type: _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__["ToastService"] }, { type: _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_6__["SpinnerService"] }]; }, null); })();
 
 
 /***/ })

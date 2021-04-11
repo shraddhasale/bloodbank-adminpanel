@@ -4,14 +4,16 @@ import { Subscription } from 'rxjs';
 import { BloodBankI} from '../models/blood-bank.model';
 import { BloodBankHttpService } from '../services/blood-bank-http.service';
 import { ToastService } from '@shared/services/toast.service';
-
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { BLOOD_BANK_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-add-blood-bank',
   templateUrl: './add-blood-bank.component.html',
   styleUrls: ['./add-blood-bank.component.scss']
 })
 export class AddBloodBankComponent implements OnInit {
-
+  readonly breadcrumbList: BreadcrumbI[] = BLOOD_BANK_BREADCRUMSLIST.add;
+  readonly pageTitle = 'Add Blood Bank';
   bloodBankWrapper: BloodBankI;
   private subscriptions: Subscription = new Subscription();
 

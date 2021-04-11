@@ -6,14 +6,16 @@ import { UserBloodBankRequestI} from '../models/user-blood-bank-request';
 import { UserBloodBankRequestHttpService } from '../services/user-blood-bank-request-http.service';
 import { StatusEnum } from '@const/api.constant';
 import { ToastService } from '@shared/services/toast.service';
-
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { BLOOD_REQUEST_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-add-user-blood-bank-request',
   templateUrl: './add-user-blood-bank-request.component.html',
   styleUrls: ['./add-user-blood-bank-request.component.scss']
 })
 export class AddUserBloodBankRequestComponent implements OnInit {
-
+  readonly breadcrumbList: BreadcrumbI[] = BLOOD_REQUEST_BREADCRUMSLIST.add;
+  readonly pageTitle = 'Add User Blood Bank Request';
   bloodRequestWrapper: UserBloodBankRequestI;
   private subscriptions: Subscription = new Subscription();
 
@@ -37,7 +39,7 @@ export class AddUserBloodBankRequestComponent implements OnInit {
     };
   }
 
-  onRoleSubmit() {
+  onRequestSubmit() {
     if(this.bloodRequestWrapper.statusID === false){
       this.bloodRequestWrapper.statusID = 0
     }else if(this.bloodRequestWrapper.statusID === true){

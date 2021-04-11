@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/core';
-import { ButtonOptionsI} from '@shared/models/titlebar.model';
+import { ButtonOptionsI, BreadcrumbI } from '@shared/models/titlebar.model';
 
 @Component({
   selector: 'app-page-titlebar',
@@ -8,6 +8,7 @@ import { ButtonOptionsI} from '@shared/models/titlebar.model';
 })
 export class PageTitlebarComponent implements OnInit {
   
+  @Input() breadcrumbList: BreadcrumbI[];
   @Input() pageTitle: string;
   @Input() itemCount?: number;
   @Input() button: ButtonOptionsI = {

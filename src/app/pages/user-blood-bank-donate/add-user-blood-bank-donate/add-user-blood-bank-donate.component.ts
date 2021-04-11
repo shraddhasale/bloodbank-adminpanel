@@ -5,15 +5,18 @@ import { Subscription } from 'rxjs';
 import { UserBloodBankDonateI} from '../../user-blood-bank-donate/models/user-blood-bank-donate';
 
 import { UserBloodBankDonateHttpService } from '../services/user-blood-bank-donate-http.service';
+import { BLOOD_DONATEBREADCRUMSLIST } from '@const/breadcrumb.constant';
 import { StatusEnum } from '@const/api.constant';
 import { ToastService } from '@shared/services/toast.service';
+import { BreadcrumbI } from '@shared/models/titlebar.model';
 @Component({
   selector: 'app-add-user-blood-bank-donate',
   templateUrl: './add-user-blood-bank-donate.component.html',
   styleUrls: ['./add-user-blood-bank-donate.component.scss']
 })
 export class AddUserBloodBankDonateComponent implements OnInit {
-
+  readonly breadcrumbList: BreadcrumbI[] = BLOOD_DONATEBREADCRUMSLIST.add;
+  readonly pageTitle = 'Add New User Blood Bank Donate';
   bloodDonateWrapper: UserBloodBankDonateI;
   private subscriptions: Subscription = new Subscription();
 

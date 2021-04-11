@@ -1,8 +1,14 @@
+<app-page-titlebar
+  [pageTitle]="pageTitle"
+  [breadcrumbList]="breadcrumbList"
+></app-page-titlebar>
 <main class="main-section bg-white float-left w-100">
+  <ng-container *ngIf="adminUserWrapper">
     <app-admin-users-form
     [adminUserWrapper]="adminUserWrapper" 
     (submit)="onAdminUserSubmit()"
     (back)="redirectToAdminListing()"
     > 
     </app-admin-users-form>
+  </ng-container>
 </main>

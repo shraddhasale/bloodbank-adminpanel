@@ -7,13 +7,16 @@ import { RoleI} from '../models/role.model';
 import { RoleHttpService } from '../services/role-http.service';
 import { StatusEnum } from '@const/api.constant';
 import { ToastService } from '@shared/services/toast.service';
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { ROLE_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-add-role',
   templateUrl: './add-role.component.html',
   styleUrls: ['./add-role.component.scss']
 })
 export class AddRoleComponent implements OnInit,OnDestroy {
-
+  readonly breadcrumbList: BreadcrumbI[] = ROLE_BREADCRUMSLIST.add;
+  readonly pageTitle = 'Add New Role';
   roleWrapper: RoleI;
   private subscriptions: Subscription = new Subscription();
 

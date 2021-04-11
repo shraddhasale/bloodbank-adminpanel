@@ -9,14 +9,15 @@ import { API_CONFIG} from '@const/api.constant';
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
 import { StatusEnum } from '@const/api.constant';
-
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { BLOOD_BANK_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-blood-bank',
   templateUrl: './blood-bank.component.html',
   styleUrls: ['./blood-bank.component.scss']
 })
 export class BloodBankComponent implements OnInit {
-
+  readonly breadcrumbList: BreadcrumbI[] = BLOOD_BANK_BREADCRUMSLIST.listing;
   readonly button: ButtonOptionsI = {
     label: 'Add Blood Bank',
     routerLink: ['/blood-bank/add']

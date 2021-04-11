@@ -16,11 +16,7 @@ export const  sidebarMenu = [
             icon: 'fa-table',
             routerLink: '/admin-users'
           },
-          {
-            name: 'Users',
-            icon: 'fa-table',
-            routerLink: '/users'
-          },
+          
           {
             name: 'Api Key',
             icon: 'fa-table',
@@ -28,6 +24,9 @@ export const  sidebarMenu = [
           }
         ]
       },
+    {
+      name: 'Users',icon: 'icon-influencers',routerLink: '/users'
+    },
     { name: 'Blood Bank', icon: 'icon-influencers', routerLink: '/blood-bank' },
     { name: 'Blood Bank Donate', icon: 'icon-influencers', routerLink: '/user-blood-bank-donate' },
     { name: 'Blood Bank Request', icon: 'icon-influencers', routerLink: '/user-blood-bank-request' },

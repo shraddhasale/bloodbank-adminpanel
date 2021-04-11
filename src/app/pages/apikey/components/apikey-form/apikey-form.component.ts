@@ -41,7 +41,7 @@ export class ApikeyFormComponent implements OnInit {
     this.apiKeyForm = this._formBuilder.group({
       name: [get(this.apiKeyWrapper, ['name'], ''), Validators.required],
       apikey: [get(this.apiKeyWrapper, ['apikey'], ''), Validators.required],
-      roleID: [get(this.apiKeyWrapper, ['roleID'], '')],
+      roleID: [get(this.apiKeyWrapper, ['roleID'], ''), Validators.required],
       statusID: [
         get(this.apiKeyWrapper, ['statusID'],StatusEnum.ACTIVE)],
      
@@ -66,7 +66,7 @@ export class ApikeyFormComponent implements OnInit {
     set(this.apiKeyWrapper, ['name'], formValue['name']);
     set(this.apiKeyWrapper, ['apikey'], formValue['apikey']);
     set(this.apiKeyWrapper, ['statusID'], formValue['statusID']);
-    set(this.apiKeyWrapper, ['roleID'], this.roleId);
+    set(this.apiKeyWrapper, ['roleID'], formValue['roleID']);
   }
   getRoleList() {
     this.subscriptions.add(
@@ -75,13 +75,7 @@ export class ApikeyFormComponent implements OnInit {
       })
     )  
   }
-  onRoleChange(role){
-    if(role){
-      this.roleId = role.id
-    }
-  }
   
- 
 /**
    * @description emit back click
    * @memberof EndpointFormComponent

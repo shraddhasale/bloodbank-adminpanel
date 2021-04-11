@@ -9,14 +9,15 @@ import { UserBloodBankRequestI } from '../user-blood-bank-request/models/user-bl
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
 import { StatusEnum } from '@const/api.constant';
-
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { BLOOD_REQUEST_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-user-blood-bank-request',
   templateUrl: './user-blood-bank-request.component.html',
   styleUrls: ['./user-blood-bank-request.component.scss']
 })
 export class UserBloodBankRequestComponent implements OnInit {
-
+  readonly breadcrumbList: BreadcrumbI[] = BLOOD_REQUEST_BREADCRUMSLIST.listing;
   readonly button: ButtonOptionsI = {
     label: 'Add User Blood Bank Request',
     routerLink: ['/user-blood-bank-request/add']

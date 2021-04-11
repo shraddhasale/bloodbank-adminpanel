@@ -4,7 +4,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { UrlRoutingModule } from './url-routing.module';
 import { UrlComponent } from './url.component';
 import { UrlListingComponent } from './components/url-listing/url-listing.component';
@@ -29,7 +29,8 @@ import { UrlHttpsService } from './services/url-https.service'
     NgbDropdownModule,
     UrlRoutingModule,
     NgSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     UrlHttpsService

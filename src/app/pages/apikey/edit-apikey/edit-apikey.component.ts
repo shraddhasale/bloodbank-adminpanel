@@ -7,14 +7,16 @@ import { ApikeyI} from '../models/apikey.model';
 import { ApikeyHttpService } from '../services/apikey-http.service';
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
-
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { APIKEY_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-edit-apikey',
   templateUrl: './edit-apikey.component.html',
   styleUrls: ['./edit-apikey.component.scss']
 })
 export class EditApikeyComponent implements OnInit {
-
+  readonly breadcrumbList: BreadcrumbI[] = APIKEY_BREADCRUMSLIST.edit;
+  readonly pageTitle = 'Edit API Key';
   apiKeyWrapper: ApikeyI;
   apiID:string;
   private subscriptions: Subscription = new Subscription();

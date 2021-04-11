@@ -16,8 +16,16 @@ import { UserBloodBankDonateFormComponent } from './components/user-blood-bank-d
 import { UserBloodBankDonateHttpService } from  '../user-blood-bank-donate/services/user-blood-bank-donate-http.service'
 
 @NgModule({
-  declarations: [UserBloodBankDonateComponent, AddUserBloodBankDonateComponent, EditUserBloodBankDonateComponent, UserBloodBankDonateListingComponent, UserBloodBankDonateFormComponent],
+  declarations: [
+    
+    UserBloodBankDonateComponent, 
+    AddUserBloodBankDonateComponent, 
+    EditUserBloodBankDonateComponent, 
+    UserBloodBankDonateListingComponent, 
+    UserBloodBankDonateFormComponent
+  ],
   imports: [
+    CommonModule,
     SharedModule,
     NgbTooltipModule,
     NgbDropdownModule,

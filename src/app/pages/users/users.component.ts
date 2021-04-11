@@ -9,7 +9,8 @@ import { API_CONFIG} from '@const/api.constant';
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
 import { StatusEnum } from '@const/api.constant';
-
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { USERS_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -20,6 +21,7 @@ export class UsersComponent implements OnInit {
     label: 'Add New User',
     routerLink: ['/users/add']
   };
+  readonly breadcrumbList: BreadcrumbI[] = USERS_BREADCRUMSLIST.listing;
   readonly pageTitle = 'Users';
   readonly pageSize = API_CONFIG.pageSize;
   paginationTotalCount = 0;

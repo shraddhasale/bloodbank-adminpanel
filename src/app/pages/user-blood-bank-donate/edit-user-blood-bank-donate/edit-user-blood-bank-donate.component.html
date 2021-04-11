@@ -1,1 +1,15 @@
-<p>edit-user-blood-bank-donate works!</p>
+<app-page-titlebar
+    [breadcrumbList]="breadcrumbList"
+    [pageTitle]="pageTitle"
+  ></app-page-titlebar>
+<main class="main-section bg-white float-left w-100">
+    <ng-container *ngIf="bloodDonateWrapper">
+        <app-user-blood-bank-donate-form
+        [bloodDonateWrapper]="bloodDonateWrapper" 
+        (submit)="onUserBloodDonateSubmit()"
+        (back)="redirectTobloodDonateListing()"
+        > 
+        </app-user-blood-bank-donate-form>
+    </ng-container>
+
+</main>

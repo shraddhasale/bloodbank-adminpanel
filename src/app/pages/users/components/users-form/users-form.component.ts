@@ -47,15 +47,15 @@ export class UsersFormComponent implements OnInit {
       nationality:[get(this.userWrapper, ['nationality'], ''), Validators.required],
       panCard:[get(this.userWrapper, ['panCard'], ''), Validators.required],
       adharCard:[get(this.userWrapper, ['adharCard'], ''), Validators.required],
-      bloodgroup:[get(this.userWrapper, ['bloodgroup'], ''), Validators.required],
+      bloodgroup:[get(this.userWrapper, ['bloodgroup'], ''), ],
 
       address: this._formBuilder.group({
-        country:[get(this.userWrapper,['country'], '')],
-        state:[get(this.userWrapper, ['state'], '')],
-        city:[get(this.userWrapper, ['city'], '')],
-        pinCode:[get(this.userWrapper, ['pinCode'], '')],
-        landMark:[get(this.userWrapper, ['landMark'], '')],
-        location:[get(this.userWrapper, ['location'], '')],
+        country:[get(this.userWrapper,'address.country', '')],
+         state:[get(this.userWrapper, ['address.state'], '')],
+        city:[get(this.userWrapper, ['address.city'], '')],
+        pinCode:[get(this.userWrapper, ['address.pinCode'], '')],
+        landMark:[get(this.userWrapper, ['address.landMark'], '')],
+        location:[get(this.userWrapper, ['address.location'], '')],
       }),
       
       statusID: [
@@ -63,7 +63,7 @@ export class UsersFormComponent implements OnInit {
       ],
      
     });
-  }
+   }
 
   /**
    * @description on submit, map to wrapper and emit submit event

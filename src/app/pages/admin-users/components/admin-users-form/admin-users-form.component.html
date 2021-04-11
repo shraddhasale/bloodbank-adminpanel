@@ -37,13 +37,20 @@
           <input type="text" class="form-control" formControlName="email" />
         </div>
       </div>
-    <!-- name -->
-    <div class="row">
-      
-    </div>
-  
-    
-    
+      <div class="row">
+        <div class="col-6 form-group required">
+          <label>Role</label>
+            <ng-select
+            class="w-100 text-capitalize"
+            [multiple]="true" 
+            [items]="roleList" 
+            bindLabel="name"
+            bindValue="id"
+            formControlName="roleID"
+            [searchable]="true"
+          ></ng-select>
+        </div>
+      </div>
   </form>
   
   <!-- Footer -->

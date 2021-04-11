@@ -7,15 +7,16 @@ import { BloodBankI } from '../models/blood-bank.model';
 import { BloodBankHttpService } from '../services/blood-bank-http.service';
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
-
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { BLOOD_BANK_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-edit-blood-bank',
   templateUrl: './edit-blood-bank.component.html',
   styleUrls: ['./edit-blood-bank.component.scss']
 })
 export class EditBloodBankComponent implements OnInit {
-
-  readonly pageTitle = "Edit User"
+  readonly breadcrumbList: BreadcrumbI[] = BLOOD_BANK_BREADCRUMSLIST.edit;
+  readonly pageTitle = 'Edit Blood Bank';
   bloodBankWrapper: BloodBankI;
   bloodBankID:string;
   private subscriptions: Subscription = new Subscription();
@@ -40,6 +41,7 @@ export class EditBloodBankComponent implements OnInit {
       .subscribe(
         (resp) => {
          this.bloodBankWrapper = resp;
+         this.bloodBankWrapper.address = resp.address
         this._spinner.hide();
         },
         err => {
@@ -49,18 +51,17 @@ export class EditBloodBankComponent implements OnInit {
       )
     );
   }
-  onBloodBankSubmit(){
-    let adminId = this.bloodBankWrapper.id
-    if(this.bloodBankWrapper.statusID === false){
-      this.bloodBankWrapper.statusID = 0
-    }else if(this.bloodBankWrapper.statusID === true){
-      this.bloodBankWrapper.statusID = 1;
+  onBloodBankSubmit(bloodBankWrapper){
+    if(bloodBankWrapper.statusID === false){
+      bloodBankWrapper.statusID = 0
+    }else if(bloodBankWrapper.statusID === true){
+      bloodBankWrapper.statusID = 1;
     }
-    delete this.bloodBankWrapper.id;
-    delete this.bloodBankWrapper['createdAt'];
-    delete this.bloodBankWrapper['updatedAt'];
+    delete bloodBankWrapper.id;
+    delete bloodBankWrapper['createdAt'];
+    delete bloodBankWrapper['updatedAt'];
     this.subscriptions.add(
-      this._bloodBankHttp.updateBloodBank(this.bloodBankWrapper,adminId)
+      this._bloodBankHttp.updateBloodBank(bloodBankWrapper,this.bloodBankID)
       .subscribe(
         (resp) => {
        this.redirectToBloodBankListing();

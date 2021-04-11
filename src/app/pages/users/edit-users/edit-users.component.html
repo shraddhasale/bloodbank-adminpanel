@@ -1,12 +1,13 @@
 <app-page-titlebar
   [pageTitle]="pageTitle"
+  [breadcrumbList]="breadcrumbList"
 ></app-page-titlebar>
 <main class="main-section bg-white float-left w-100">
     <!-- endpoint detail form -->
     <ng-container *ngIf="userWrapper">
     <app-users-form
       [userWrapper]="userWrapper"
-      (submit)="onUserSubmit()"
+      (submit)="onUserSubmit($event)"
       (back)="redirectToEndpointListing()"
     >
     </app-users-form>

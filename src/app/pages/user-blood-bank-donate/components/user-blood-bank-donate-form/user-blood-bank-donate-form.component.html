@@ -41,12 +41,22 @@
           <input type="text" class="form-control" formControlName="paidAmount" />
         </div>
     </div>
-      <div class="row">
-        <div class="form-group col-lg-6 required">
-          <label>Paid Status</label>
-          <input type="text" class="form-control" formControlName="paidStatus" />
-        </div>
+    <div class="row">
+      <div class="form-group col-lg-6 required">
+        <label>Paid Status</label>
+        <ng-select
+        class="w-100 text-capitalize"
+        [multiple]="false" 
+        [items]="paidList" 
+        bindLabel="name"
+        bindValue="key"
+        [searchable]="false"
+        (change)="paidStatus($event)"
+        formControlName="paidStatus"
+      ></ng-select>
       </div>
+  </div>
+ 
       
     
   </form>

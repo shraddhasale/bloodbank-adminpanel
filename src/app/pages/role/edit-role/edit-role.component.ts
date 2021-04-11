@@ -7,13 +7,16 @@ import { RoleI} from '../models/role.model';
 import { RoleHttpService } from '../services/role-http.service'
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { ROLE_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-edit-role',
   templateUrl: './edit-role.component.html',
   styleUrls: ['./edit-role.component.scss']
 })
 export class EditRoleComponent implements OnInit,OnDestroy {
-
+  readonly breadcrumbList: BreadcrumbI[] = ROLE_BREADCRUMSLIST.edit;
+  readonly pageTitle = 'Edit Role';
   roleWrapper: RoleI;
   roleID:string;
   private subscriptions: Subscription = new Subscription();

@@ -67,7 +67,7 @@ export class UserBloodBankRequestFormComponent implements OnInit {
     set(this.bloodRequestWrapper, ['userID'], formValue['userID']);
     set(this.bloodRequestWrapper, ['bloodBankID'], formValue['bloodBankID']);
     set(this.bloodRequestWrapper, ['requestFor'], formValue['requestFor']);
-    set(this.bloodRequestWrapper, ['isHospitalize'], formValue['isHospitalize']);
+    set(this.bloodRequestWrapper, ['isHospitalize'], formValue['isHospitalize'].toString());
     set(this.bloodRequestWrapper, ['statusID'], formValue['statusID']);
   }
 

@@ -81,7 +81,8 @@ export class UrlHttpsService {
    * @description fetch all Role as per filter
    
    */
-   fetchAllRole(): Observable<any> {
+   fetchAllRole(
+   ): Observable<any> {
     return this._http.get<any>(
       this.baseUrl + API_ENDPOINT.role.fetchAll
     );

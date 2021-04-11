@@ -5,14 +5,16 @@ import { ApikeyI} from '../models/apikey.model';
 import { ApikeyHttpService } from '../services/apikey-http.service';
 import { StatusEnum } from '@const/api.constant';
 import { ToastService } from '@shared/services/toast.service';
-
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { APIKEY_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-add-apikey',
   templateUrl: './add-apikey.component.html',
   styleUrls: ['./add-apikey.component.scss']
 })
 export class AddApikeyComponent implements OnInit,OnDestroy {
-
+  readonly breadcrumbList: BreadcrumbI[] = APIKEY_BREADCRUMSLIST.add;
+  readonly pageTitle = 'Edit Role';
   apiKeyWrapper: ApikeyI;
   private subscriptions: Subscription = new Subscription();
 

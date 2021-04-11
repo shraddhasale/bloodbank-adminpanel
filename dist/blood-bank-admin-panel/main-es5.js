@@ -17,7 +17,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       module.exports = __webpack_require__(
-      /*! c:\project\bloodbank-adminpanel\src\main.ts */
+      /*! /Users/sagarshinde/Sagar/projects/bloodbank-adminpanel/src/main.ts */
       "zUnb");
       /***/
     },

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LoginHttpService } from './login-http.service';
+import { LoginHttpService } from './login/login-http.service';
 
 describe('LoginHttpService', () => {
   let service: LoginHttpService;

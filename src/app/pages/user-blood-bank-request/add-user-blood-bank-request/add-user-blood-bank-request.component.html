@@ -1,7 +1,11 @@
+<app-page-titlebar
+    [breadcrumbList]="breadcrumbList"
+    [pageTitle]="pageTitle"
+  ></app-page-titlebar>
 <main class="main-section bg-white float-left w-100">
     <app-user-blood-bank-request-form
     [bloodRequestWrapper]="bloodRequestWrapper" 
-    (submit)="onRoleSubmit()"
+    (submit)="onRequestSubmit()"
     (back)="redirectToBloodRequestListing()"
     > 
     </app-user-blood-bank-request-form>

@@ -1,257 +1,8 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~pages-admin-users-admin-users-module~pages-apikey-apikey-module~pages-blood-bank-blood-bank-~fc81981f"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~pages-admin-users-admin-users-module~pages-apikey-apikey-module~pages-role-role-module~pages~be372b10"],{
 
-/***/ "LTnQ":
-/*!**************************************************!*\
-  !*** ./src/app/constants/breadcrumb.constant.ts ***!
-  \**************************************************/
-/*! exports provided: BLOOD_DONATEBREADCRUMSLIST, URL_BREADCRUMSLIST, APIKEY_BREADCRUMSLIST, ROLE_BREADCRUMSLIST, ADMIN_USERS_BREADCRUMSLIST, USERS_BREADCRUMSLIST, BLOOD_REQUEST_BREADCRUMSLIST, BLOOD_BANK_BREADCRUMSLIST */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BLOOD_DONATEBREADCRUMSLIST", function() { return BLOOD_DONATEBREADCRUMSLIST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "URL_BREADCRUMSLIST", function() { return URL_BREADCRUMSLIST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "APIKEY_BREADCRUMSLIST", function() { return APIKEY_BREADCRUMSLIST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROLE_BREADCRUMSLIST", function() { return ROLE_BREADCRUMSLIST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADMIN_USERS_BREADCRUMSLIST", function() { return ADMIN_USERS_BREADCRUMSLIST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USERS_BREADCRUMSLIST", function() { return USERS_BREADCRUMSLIST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BLOOD_REQUEST_BREADCRUMSLIST", function() { return BLOOD_REQUEST_BREADCRUMSLIST; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BLOOD_BANK_BREADCRUMSLIST", function() { return BLOOD_BANK_BREADCRUMSLIST; });
-const HOME = {
-    name: 'Home',
-    routerLink: ['']
-};
-const BLOOD_DONATEBREADCRUMSLIST = {
-    listing: [
-        HOME,
-        {
-            name: 'User Blood Donate'
-        }
-    ],
-    add: [
-        HOME,
-        {
-            name: 'User Blood Donate',
-            routerLink: ['/user-blood-bank-donate']
-        },
-        {
-            name: 'Add New User Blood Donate'
-        }
-    ],
-    edit: [
-        HOME,
-        {
-            name: 'User Blood Donate',
-            routerLink: ['/user-blood-bank-donate']
-        },
-        {
-            name: 'Edit User Blood Donate'
-        }
-    ]
-};
-const URL_BREADCRUMSLIST = {
-    listing: [
-        HOME,
-        {
-            name: 'URL'
-        }
-    ],
-    add: [
-        HOME,
-        {
-            name: 'URL',
-            routerLink: ['/urls']
-        },
-        {
-            name: 'Add New URL'
-        }
-    ],
-    edit: [
-        HOME,
-        {
-            name: 'URL',
-            routerLink: ['/urls']
-        },
-        {
-            name: 'Edit URL'
-        }
-    ]
-};
-const APIKEY_BREADCRUMSLIST = {
-    listing: [
-        HOME,
-        {
-            name: 'API Key'
-        }
-    ],
-    add: [
-        HOME,
-        {
-            name: 'API Key',
-            routerLink: ['/api-key']
-        },
-        {
-            name: 'Add New API Key'
-        }
-    ],
-    edit: [
-        HOME,
-        {
-            name: 'API Key',
-            routerLink: ['/api-key']
-        },
-        {
-            name: 'Edit API Key'
-        }
-    ]
-};
-const ROLE_BREADCRUMSLIST = {
-    listing: [
-        HOME,
-        {
-            name: 'Role'
-        }
-    ],
-    add: [
-        HOME,
-        {
-            name: 'Role',
-            routerLink: ['/roles']
-        },
-        {
-            name: 'Add New Role'
-        }
-    ],
-    edit: [
-        HOME,
-        {
-            name: 'API Role',
-            routerLink: ['/roles']
-        },
-        {
-            name: 'Edit Role'
-        }
-    ]
-};
-const ADMIN_USERS_BREADCRUMSLIST = {
-    listing: [
-        HOME,
-        {
-            name: 'Admin Users'
-        }
-    ],
-    add: [
-        HOME,
-        {
-            name: 'Admin Users',
-            routerLink: ['/admin-users']
-        },
-        {
-            name: 'Add New Admin User'
-        }
-    ],
-    edit: [
-        HOME,
-        {
-            name: 'Admin Users',
-            routerLink: ['/admin-users']
-        },
-        {
-            name: 'Edit Admin User'
-        }
-    ]
-};
-const USERS_BREADCRUMSLIST = {
-    listing: [
-        HOME,
-        {
-            name: 'Users'
-        }
-    ],
-    add: [
-        HOME,
-        {
-            name: 'Users',
-            routerLink: ['/users']
-        },
-        {
-            name: 'Add New  User'
-        }
-    ],
-    edit: [
-        HOME,
-        {
-            name: 'Users',
-            routerLink: ['/users']
-        },
-        {
-            name: 'Edit User'
-        }
-    ]
-};
-const BLOOD_REQUEST_BREADCRUMSLIST = {
-    listing: [
-        HOME,
-        {
-            name: 'User Blood Bank Request'
-        }
-    ],
-    add: [
-        HOME,
-        {
-            name: 'User Blood Bank Request',
-            routerLink: ['/user-blood-bank-request']
-        },
-        {
-            name: 'Add New User Blood Bank Request'
-        }
-    ],
-    edit: [
-        HOME,
-        {
-            name: 'User Blood Bank Request',
-            routerLink: ['/useruser-blood-bank-requests']
-        },
-        {
-            name: 'Edit User Blood Bank Request'
-        }
-    ]
-};
-const BLOOD_BANK_BREADCRUMSLIST = {
-    listing: [
-        HOME,
-        {
-            name: 'Blood Bank '
-        }
-    ],
-    add: [
-        HOME,
-        {
-            name: 'Blood Bank ',
-            routerLink: ['/blood-bank']
-        },
-        {
-            name: 'Add New Blood Bank '
-        }
-    ],
-    edit: [
-        HOME,
-        {
-            name: 'Blood Bank ',
-            routerLink: ['/blood-bank']
-        },
-        {
-            name: 'Edit Blood Bank '
-        }
-    ]
-};
-
-
-/***/ }),
-
-/***/ "yDJ3":
+/***/ "9MQZ":
 /*!******************************************!*\
-  !*** ./node_modules/lodash.get/index.js ***!
+  !*** ./node_modules/lodash.set/index.js ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -272,7 +23,8 @@ var FUNC_ERROR_TEXT = 'Expected a function';
 var HASH_UNDEFINED = '__lodash_hash_undefined__';
 
 /** Used as references for various `Number` constants. */
-var INFINITY = 1 / 0;
+var INFINITY = 1 / 0,
+    MAX_SAFE_INTEGER = 9007199254740991;
 
 /** `Object#toString` result references. */
 var funcTag = '[object Function]',
@@ -296,6 +48,9 @@ var reEscapeChar = /\\(\\)?/g;
 
 /** Used to detect host constructors (Safari). */
 var reIsHostCtor = /^\[object .+?Constructor\]$/;
+
+/** Used to detect unsigned integer values. */
+var reIsUint = /^(?:0|[1-9]\d*)$/;
 
 /** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
@@ -687,6 +442,24 @@ MapCache.prototype.has = mapCacheHas;
 MapCache.prototype.set = mapCacheSet;
 
 /**
+ * Assigns `value` to `key` of `object` if the existing value is not equivalent
+ * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * for equality comparisons.
+ *
+ * @private
+ * @param {Object} object The object to modify.
+ * @param {string} key The key of the property to assign.
+ * @param {*} value The value to assign.
+ */
+function assignValue(object, key, value) {
+  var objValue = object[key];
+  if (!(hasOwnProperty.call(object, key) && eq(objValue, value)) ||
+      (value === undefined && !(key in object))) {
+    object[key] = value;
+  }
+}
+
+/**
  * Gets the index at which the `key` is found in `array` of key-value pairs.
  *
  * @private
@@ -705,26 +478,6 @@ function assocIndexOf(array, key) {
 }
 
 /**
- * The base implementation of `_.get` without support for default values.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {Array|string} path The path of the property to get.
- * @returns {*} Returns the resolved value.
- */
-function baseGet(object, path) {
-  path = isKey(path, object) ? [path] : castPath(path);
-
-  var index = 0,
-      length = path.length;
-
-  while (object != null && index < length) {
-    object = object[toKey(path[index++])];
-  }
-  return (index && index == length) ? object : undefined;
-}
-
-/**
  * The base implementation of `_.isNative` without bad shim checks.
  *
  * @private
@@ -738,6 +491,46 @@ function baseIsNative(value) {
   }
   var pattern = (isFunction(value) || isHostObject(value)) ? reIsNative : reIsHostCtor;
   return pattern.test(toSource(value));
+}
+
+/**
+ * The base implementation of `_.set`.
+ *
+ * @private
+ * @param {Object} object The object to modify.
+ * @param {Array|string} path The path of the property to set.
+ * @param {*} value The value to set.
+ * @param {Function} [customizer] The function to customize path creation.
+ * @returns {Object} Returns `object`.
+ */
+function baseSet(object, path, value, customizer) {
+  if (!isObject(object)) {
+    return object;
+  }
+  path = isKey(path, object) ? [path] : castPath(path);
+
+  var index = -1,
+      length = path.length,
+      lastIndex = length - 1,
+      nested = object;
+
+  while (nested != null && ++index < length) {
+    var key = toKey(path[index]),
+        newValue = value;
+
+    if (index != lastIndex) {
+      var objValue = nested[key];
+      newValue = customizer ? customizer(objValue, key, nested) : undefined;
+      if (newValue === undefined) {
+        newValue = isObject(objValue)
+          ? objValue
+          : (isIndex(path[index + 1]) ? [] : {});
+      }
+    }
+    assignValue(nested, key, newValue);
+    nested = nested[key];
+  }
+  return object;
 }
 
 /**
@@ -797,6 +590,21 @@ function getMapData(map, key) {
 function getNative(object, key) {
   var value = getValue(object, key);
   return baseIsNative(value) ? value : undefined;
+}
+
+/**
+ * Checks if `value` is a valid array-like index.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+ * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+ */
+function isIndex(value, length) {
+  length = length == null ? MAX_SAFE_INTEGER : length;
+  return !!length &&
+    (typeof value == 'number' || reIsUint.test(value)) &&
+    (value > -1 && value % 1 == 0 && value < length);
 }
 
 /**
@@ -1157,39 +965,41 @@ function toString(value) {
 }
 
 /**
- * Gets the value at `path` of `object`. If the resolved value is
- * `undefined`, the `defaultValue` is returned in its place.
+ * Sets the value at `path` of `object`. If a portion of `path` doesn't exist,
+ * it's created. Arrays are created for missing index properties while objects
+ * are created for all other missing properties. Use `_.setWith` to customize
+ * `path` creation.
+ *
+ * **Note:** This method mutates `object`.
  *
  * @static
  * @memberOf _
  * @since 3.7.0
  * @category Object
- * @param {Object} object The object to query.
- * @param {Array|string} path The path of the property to get.
- * @param {*} [defaultValue] The value returned for `undefined` resolved values.
- * @returns {*} Returns the resolved value.
+ * @param {Object} object The object to modify.
+ * @param {Array|string} path The path of the property to set.
+ * @param {*} value The value to set.
+ * @returns {Object} Returns `object`.
  * @example
  *
  * var object = { 'a': [{ 'b': { 'c': 3 } }] };
  *
- * _.get(object, 'a[0].b.c');
- * // => 3
+ * _.set(object, 'a[0].b.c', 4);
+ * console.log(object.a[0].b.c);
+ * // => 4
  *
- * _.get(object, ['a', '0', 'b', 'c']);
- * // => 3
- *
- * _.get(object, 'a.b.c', 'default');
- * // => 'default'
+ * _.set(object, ['x', '0', 'y', 'z'], 5);
+ * console.log(object.x[0].y.z);
+ * // => 5
  */
-function get(object, path, defaultValue) {
-  var result = object == null ? undefined : baseGet(object, path);
-  return result === undefined ? defaultValue : result;
+function set(object, path, value) {
+  return object == null ? object : baseSet(object, path, value);
 }
 
-module.exports = get;
+module.exports = set;
 
 
 /***/ })
 
 }]);
-//# sourceMappingURL=default~pages-admin-users-admin-users-module~pages-apikey-apikey-module~pages-blood-bank-blood-bank-~fc81981f-es2015.js.map
+//# sourceMappingURL=default~pages-admin-users-admin-users-module~pages-apikey-apikey-module~pages-role-role-module~pages~be372b10-es2015.js.map

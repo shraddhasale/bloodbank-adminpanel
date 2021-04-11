@@ -169,7 +169,19 @@
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _url_services_url_https_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! ../../../url/services/url-https.service */
+      "ToGV");
+      /* harmony import */
+
+
+      var _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! @ng-select/ng-select */
+      "ZOsW");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/common */
       "ofXK");
 
@@ -180,21 +192,23 @@
       };
 
       var AdminUsersFormComponent = /*#__PURE__*/function () {
-        function AdminUsersFormComponent(_formBuilder) {
+        function AdminUsersFormComponent(_formBuilder, _urlhttps) {
           _classCallCheck(this, AdminUsersFormComponent);
 
           this._formBuilder = _formBuilder;
+          this._urlhttps = _urlhttps;
           this.submit = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
           this.back = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
           this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subscription"]();
-          this.roleList = [];
           this.roleId = [];
+          this.roleList = [];
         }
 
         _createClass(AdminUsersFormComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
             this.initAdminUserForm();
+            this.getRoleList();
           }
           /**
            * @description initiate endpoint form
@@ -208,8 +222,9 @@
               firstName: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.adminUserWrapper, ['firstName'], ''), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
               lastName: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.adminUserWrapper, ['lastName'], ''), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
               phoneNumber: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.adminUserWrapper, ['phoneNumber'], ''), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
-              email: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.adminUserWrapper, ['email'], ''), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+              email: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.adminUserWrapper, ['email'], ''), [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email]],
               password: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.adminUserWrapper, ['password'], ''), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+              roleID: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.adminUserWrapper, ['roleID'], ''), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
               statusID: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.adminUserWrapper, ['statusID'], _const_api_constant__WEBPACK_IMPORTED_MODULE_5__["StatusEnum"].ACTIVE)]
             });
           }
@@ -239,6 +254,16 @@
             lodash_set__WEBPACK_IMPORTED_MODULE_4___default()(this.adminUserWrapper, ['email'], formValue['email']);
             lodash_set__WEBPACK_IMPORTED_MODULE_4___default()(this.adminUserWrapper, ['statusID'], formValue['statusID']);
             lodash_set__WEBPACK_IMPORTED_MODULE_4___default()(this.adminUserWrapper, ['password'], formValue['password']);
+            lodash_set__WEBPACK_IMPORTED_MODULE_4___default()(this.adminUserWrapper, ['roleID'], formValue['roleID']);
+          }
+        }, {
+          key: "getRoleList",
+          value: function getRoleList() {
+            var _this = this;
+
+            this.subscriptions.add(this._urlhttps.fetchAllRole().subscribe(function (resp) {
+              _this.roleList = resp.data;
+            }));
           }
           /**
              * @description emit back click
@@ -256,7 +281,7 @@
       }();
 
       AdminUsersFormComponent.ɵfac = function AdminUsersFormComponent_Factory(t) {
-        return new (t || AdminUsersFormComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]));
+        return new (t || AdminUsersFormComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_url_services_url_https_service__WEBPACK_IMPORTED_MODULE_6__["UrlHttpsService"]));
       };
 
       AdminUsersFormComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -269,9 +294,9 @@
           submit: "submit",
           back: "back"
         },
-        decls: 36,
-        vars: 5,
-        consts: [[1, "p-4", "pb-0", 3, "formGroup"], [1, "row"], [1, "form-group", "col-lg-6", "required"], ["type", "text", "formControlName", "firstName", 1, "form-control"], [1, "form-group", "col-lg-6", "mt-4", "d-flex", "justify-content-end"], [1, "switchToggle"], ["type", "checkbox", "formControlName", "statusID"], [1, "switchSlider"], ["type", "text", "formControlName", "lastName", 1, "form-control"], ["type", "password", "formControlName", "password", 1, "form-control"], ["type", "text", "formControlName", "phoneNumber", 1, "form-control"], ["type", "text", "formControlName", "email", 1, "form-control"], [1, "footer", "clearfix", "p-4"], ["type", "button", 1, "btn", "btn-outline-primary", "font-weight-bold", "float-left", "px-4", 3, "click"], ["type", "button", 1, "btn", "btn-primary", "font-weight-bold", "float-right", "px-4", 3, "ngClass", "disabled", "click"]],
+        decls: 40,
+        vars: 8,
+        consts: [[1, "p-4", "pb-0", 3, "formGroup"], [1, "row"], [1, "form-group", "col-lg-6", "required"], ["type", "text", "formControlName", "firstName", 1, "form-control"], [1, "form-group", "col-lg-6", "mt-4", "d-flex", "justify-content-end"], [1, "switchToggle"], ["type", "checkbox", "formControlName", "statusID"], [1, "switchSlider"], ["type", "text", "formControlName", "lastName", 1, "form-control"], ["type", "password", "formControlName", "password", 1, "form-control"], ["type", "text", "formControlName", "phoneNumber", 1, "form-control"], ["type", "text", "formControlName", "email", 1, "form-control"], [1, "col-6", "form-group", "required"], ["bindLabel", "name", "bindValue", "id", "formControlName", "roleID", 1, "w-100", "text-capitalize", 3, "multiple", "items", "searchable"], [1, "footer", "clearfix", "p-4"], ["type", "button", 1, "btn", "btn-outline-primary", "font-weight-bold", "float-left", "px-4", 3, "click"], ["type", "button", 1, "btn", "btn-primary", "font-weight-bold", "float-right", "px-4", 3, "ngClass", "disabled", "click"]],
         template: function AdminUsersFormComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
@@ -368,29 +393,43 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](30, "div", 1);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 1);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "div", 12);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "button", 13);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "label");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AdminUsersFormComponent_Template_button_click_32_listener() {
-              return ctx.onBackClick();
-            });
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, " BACK ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, "Role");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "button", 14);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](34, "ng-select", 13);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AdminUsersFormComponent_Template_button_click_34_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "div", 14);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "button", 15);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AdminUsersFormComponent_Template_button_click_36_listener() {
+              return ctx.onBackClick();
+            });
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](37, " BACK ");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "button", 16);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AdminUsersFormComponent_Template_button_click_38_listener() {
               return ctx.onSubmit();
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, " SAVE ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39, " SAVE ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -402,10 +441,14 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](34);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](3, _c0, ctx.adminUserForm.invalid))("disabled", ctx.adminUserForm.invalid);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("multiple", true)("items", ctx.roleList)("searchable", true);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](6, _c0, ctx.adminUserForm.invalid))("disabled", ctx.adminUserForm.invalid);
           }
         },
-        directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["CheckboxControlValueAccessor"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgClass"]],
+        directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["CheckboxControlValueAccessor"], _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_7__["NgSelectComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["NgClass"]],
         styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi11c2Vycy1mb3JtLmNvbXBvbmVudC5zY3NzIn0= */"]
       });
       /*@__PURE__*/
@@ -421,6 +464,8 @@
         }], function () {
           return [{
             type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]
+          }, {
+            type: _url_services_url_https_service__WEBPACK_IMPORTED_MODULE_6__["UrlHttpsService"]
           }];
         }, {
           adminUserWrapper: [{
@@ -472,34 +517,88 @@
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _const_breadcrumb_constant__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @const/breadcrumb.constant */
+      "LTnQ");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/router */
       "tyNb");
       /* harmony import */
 
 
-      var _services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ../services/adminuser-http.service */
       "tw4t");
       /* harmony import */
 
 
-      var _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @shared/services/toast.service */
       "3WbM");
       /* harmony import */
 
 
-      var _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @shared/services/spinner.service */
       "ph+x");
       /* harmony import */
 
 
-      var _components_admin_users_form_admin_users_form_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! ../../../shared/components/page-titlebar/page-titlebar.component */
+      "f+2y");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @angular/common */
+      "ofXK");
+      /* harmony import */
+
+
+      var _components_admin_users_form_admin_users_form_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ../components/admin-users-form/admin-users-form.component */
       "Leaj"); // Rxjs
 
+
+      function EditAdminUsersComponent_ng_container_2_Template(rf, ctx) {
+        if (rf & 1) {
+          var _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "app-admin-users-form", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("submit", function EditAdminUsersComponent_ng_container_2_Template_app_admin_users_form_submit_1_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r2);
+
+            var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+            return ctx_r1.onAdminUserSubmit();
+          })("back", function EditAdminUsersComponent_ng_container_2_Template_app_admin_users_form_back_1_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r2);
+
+            var ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+            return ctx_r3.redirectToAdminListing();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
+        }
+
+        if (rf & 2) {
+          var ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("adminUserWrapper", ctx_r0.adminUserWrapper);
+        }
+      }
 
       var EditAdminUsersComponent = /*#__PURE__*/function () {
         function EditAdminUsersComponent(_router, _route, _urlHttp, _toast, _spinner) {
@@ -510,6 +609,8 @@
           this._urlHttp = _urlHttp;
           this._toast = _toast;
           this._spinner = _spinner;
+          this.breadcrumbList = _const_breadcrumb_constant__WEBPACK_IMPORTED_MODULE_2__["ADMIN_USERS_BREADCRUMSLIST"].edit;
+          this.pageTitle = 'Edit Admin User';
           this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
           this.userAdminID = this._route.snapshot.params.id;
         }
@@ -522,24 +623,24 @@
         }, {
           key: "userAdminGetByID",
           value: function userAdminGetByID() {
-            var _this = this;
+            var _this2 = this;
 
             this._spinner.show("Fetching Admin User ...");
 
             this.subscriptions.add(this._urlHttp.fetchAdminUserById(this.userAdminID).subscribe(function (resp) {
-              _this.adminUserWrapper = resp;
+              _this2.adminUserWrapper = resp;
 
-              _this._spinner.hide();
+              _this2._spinner.hide();
             }, function (err) {
-              _this._spinner.hide();
+              _this2._spinner.hide();
 
-              _this._toast.error(err.error.message, 'Admin User');
+              _this2._toast.error(err.error.message, 'Admin User');
             }));
           }
         }, {
           key: "onAdminUserSubmit",
           value: function onAdminUserSubmit() {
-            var _this2 = this;
+            var _this3 = this;
 
             var adminId = this.adminUserWrapper.id;
 
@@ -552,9 +653,9 @@
             delete this.adminUserWrapper.id;
             delete this.adminUserWrapper.createdAt;
             this.subscriptions.add(this._urlHttp.updateAdminUser(this.adminUserWrapper, adminId).subscribe(function (resp) {
-              _this2.redirectToAdminListing();
+              _this3.redirectToAdminListing();
             }, function (err) {
-              _this2._toast.error(err.error.message, 'Admin User');
+              _this3._toast.error(err.error.message, 'Admin User');
             }));
           }
         }, {
@@ -575,39 +676,35 @@
       }();
 
       EditAdminUsersComponent.ɵfac = function EditAdminUsersComponent_Factory(t) {
-        return new (t || EditAdminUsersComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_3__["AdminuserHttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_toast_service__WEBPACK_IMPORTED_MODULE_4__["ToastService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_5__["SpinnerService"]));
+        return new (t || EditAdminUsersComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_4__["AdminuserHttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__["ToastService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_6__["SpinnerService"]));
       };
 
       EditAdminUsersComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
         type: EditAdminUsersComponent,
         selectors: [["app-edit-admin-users"]],
-        decls: 2,
-        vars: 1,
-        consts: [[1, "main-section", "bg-white", "float-left", "w-100"], [3, "adminUserWrapper", "submit", "back"]],
+        decls: 3,
+        vars: 3,
+        consts: [[3, "pageTitle", "breadcrumbList"], [1, "main-section", "bg-white", "float-left", "w-100"], [4, "ngIf"], [3, "adminUserWrapper", "submit", "back"]],
         template: function EditAdminUsersComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "main", 0);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-page-titlebar", 0);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "app-admin-users-form", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "main", 1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("submit", function EditAdminUsersComponent_Template_app_admin_users_form_submit_1_listener() {
-              return ctx.onAdminUserSubmit();
-            })("back", function EditAdminUsersComponent_Template_app_admin_users_form_back_1_listener() {
-              return ctx.redirectToAdminListing();
-            });
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, EditAdminUsersComponent_ng_container_2_Template, 2, 1, "ng-container", 2);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
           }
 
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pageTitle", ctx.pageTitle)("breadcrumbList", ctx.breadcrumbList);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("adminUserWrapper", ctx.adminUserWrapper);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.adminUserWrapper);
           }
         },
-        directives: [_components_admin_users_form_admin_users_form_component__WEBPACK_IMPORTED_MODULE_6__["AdminUsersFormComponent"]],
+        directives: [_shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_7__["PageTitlebarComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_8__["NgIf"], _components_admin_users_form_admin_users_form_component__WEBPACK_IMPORTED_MODULE_9__["AdminUsersFormComponent"]],
         styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJlZGl0LWFkbWluLXVzZXJzLmNvbXBvbmVudC5zY3NzIn0= */"]
       });
       /*@__PURE__*/
@@ -622,15 +719,15 @@
           }]
         }], function () {
           return [{
-            type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+            type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
           }, {
-            type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+            type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
           }, {
-            type: _services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_3__["AdminuserHttpService"]
+            type: _services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_4__["AdminuserHttpService"]
           }, {
-            type: _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_4__["ToastService"]
+            type: _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__["ToastService"]
           }, {
-            type: _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_5__["SpinnerService"]
+            type: _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_6__["SpinnerService"]
           }];
         }, null);
       })();
@@ -678,25 +775,37 @@
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _const_breadcrumb_constant__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @const/breadcrumb.constant */
+      "LTnQ");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @angular/router */
       "tyNb");
       /* harmony import */
 
 
-      var _services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ../services/adminuser-http.service */
       "tw4t");
       /* harmony import */
 
 
-      var _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @shared/services/toast.service */
       "3WbM");
       /* harmony import */
 
 
-      var _components_admin_users_form_admin_users_form_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! ../../../shared/components/page-titlebar/page-titlebar.component */
+      "f+2y");
+      /* harmony import */
+
+
+      var _components_admin_users_form_admin_users_form_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ../components/admin-users-form/admin-users-form.component */
       "Leaj");
 
@@ -707,6 +816,8 @@
           this._router = _router;
           this._urlHttp = _urlHttp;
           this._toast = _toast;
+          this.breadcrumbList = _const_breadcrumb_constant__WEBPACK_IMPORTED_MODULE_3__["ADMIN_USERS_BREADCRUMSLIST"].add;
+          this.pageTitle = 'Add New Admin User';
           this.subscriptions = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subscription"]();
         }
 
@@ -724,13 +835,14 @@
               lastName: "",
               phoneNumber: "",
               password: "",
-              statusID: _const_api_constant__WEBPACK_IMPORTED_MODULE_2__["StatusEnum"].ACTIVE
+              statusID: _const_api_constant__WEBPACK_IMPORTED_MODULE_2__["StatusEnum"].ACTIVE,
+              roleID: []
             };
           }
         }, {
           key: "onRoleSubmit",
           value: function onRoleSubmit() {
-            var _this3 = this;
+            var _this4 = this;
 
             if (this.adminUserWrapper.statusID === false) {
               this.adminUserWrapper.statusID = 0;
@@ -739,11 +851,11 @@
             }
 
             this.subscriptions.add(this._urlHttp.createAdminUser(this.adminUserWrapper).subscribe(function (res) {
-              _this3.redirectToAdminListing();
+              _this4.redirectToAdminListing();
 
-              _this3._toast.success("".concat(_this3.adminUserWrapper.firstName, " ").concat(_this3.adminUserWrapper.lastName, " Created successfully."));
+              _this4._toast.success("".concat(_this4.adminUserWrapper.firstName, " ").concat(_this4.adminUserWrapper.lastName, " Created successfully."));
             }, function (err) {
-              _this3._toast.error(err.error.message);
+              _this4._toast.error(err.error.message);
             }));
           }
         }, {
@@ -762,24 +874,26 @@
       }();
 
       AddAdminUsersComponent.ɵfac = function AddAdminUsersComponent_Factory(t) {
-        return new (t || AddAdminUsersComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_4__["AdminuserHttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__["ToastService"]));
+        return new (t || AddAdminUsersComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_5__["AdminuserHttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_toast_service__WEBPACK_IMPORTED_MODULE_6__["ToastService"]));
       };
 
       AddAdminUsersComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
         type: AddAdminUsersComponent,
         selectors: [["app-add-admin-users"]],
-        decls: 2,
-        vars: 1,
-        consts: [[1, "main-section", "bg-white", "float-left", "w-100"], [3, "adminUserWrapper", "submit", "back"]],
+        decls: 3,
+        vars: 3,
+        consts: [[3, "pageTitle", "breadcrumbList"], [1, "main-section", "bg-white", "float-left", "w-100"], [3, "adminUserWrapper", "submit", "back"]],
         template: function AddAdminUsersComponent_Template(rf, ctx) {
           if (rf & 1) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "main", 0);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-page-titlebar", 0);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "app-admin-users-form", 1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "main", 1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("submit", function AddAdminUsersComponent_Template_app_admin_users_form_submit_1_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "app-admin-users-form", 2);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("submit", function AddAdminUsersComponent_Template_app_admin_users_form_submit_2_listener() {
               return ctx.onRoleSubmit();
-            })("back", function AddAdminUsersComponent_Template_app_admin_users_form_back_1_listener() {
+            })("back", function AddAdminUsersComponent_Template_app_admin_users_form_back_2_listener() {
               return ctx.redirectToAdminListing();
             });
 
@@ -789,12 +903,14 @@
           }
 
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pageTitle", ctx.pageTitle)("breadcrumbList", ctx.breadcrumbList);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("adminUserWrapper", ctx.adminUserWrapper);
           }
         },
-        directives: [_components_admin_users_form_admin_users_form_component__WEBPACK_IMPORTED_MODULE_6__["AdminUsersFormComponent"]],
+        directives: [_shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_7__["PageTitlebarComponent"], _components_admin_users_form_admin_users_form_component__WEBPACK_IMPORTED_MODULE_8__["AdminUsersFormComponent"]],
         styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZGQtYWRtaW4tdXNlcnMuY29tcG9uZW50LnNjc3MifQ== */"]
       });
       /*@__PURE__*/
@@ -809,11 +925,11 @@
           }]
         }], function () {
           return [{
-            type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+            type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
           }, {
-            type: _services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_4__["AdminuserHttpService"]
+            type: _services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_5__["AdminuserHttpService"]
           }, {
-            type: _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__["ToastService"]
+            type: _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_6__["ToastService"]
           }];
         }, null);
       })();
@@ -1273,55 +1389,61 @@
       /* harmony import */
 
 
-      var _services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _const_breadcrumb_constant__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @const/breadcrumb.constant */
+      "LTnQ");
+      /* harmony import */
+
+
+      var _services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./services/adminuser-http.service */
       "tw4t");
       /* harmony import */
 
 
-      var _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @shared/services/toast.service */
       "3WbM");
       /* harmony import */
 
 
-      var _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @shared/services/spinner.service */
       "ph+x");
       /* harmony import */
 
 
-      var _shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ../../shared/components/page-titlebar/page-titlebar.component */
       "f+2y");
       /* harmony import */
 
 
-      var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @ng-bootstrap/ng-bootstrap */
       "1kSV");
       /* harmony import */
 
 
-      var _shared_components_search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _shared_components_search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ../../shared/components/search-bar/search-bar.component */
       "dRJ3");
       /* harmony import */
 
 
-      var _components_admin_users_listing_admin_users_listing_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_admin_users_listing_admin_users_listing_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/admin-users-listing/admin-users-listing.component */
       "dE/F");
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! @angular/common */
       "ofXK");
       /* harmony import */
 
 
-      var _shared_components_pagination_pagination_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _shared_components_pagination_pagination_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ../../shared/components/pagination/pagination.component */
       "NhFE");
 
@@ -1356,6 +1478,7 @@
           this._adminUserhttps = _adminUserhttps;
           this._toast = _toast;
           this._spinner = _spinner;
+          this.breadcrumbList = _const_breadcrumb_constant__WEBPACK_IMPORTED_MODULE_3__["ADMIN_USERS_BREADCRUMSLIST"].listing;
           this.button = {
             label: 'Add New User',
             routerLink: ['/admin-users/add']
@@ -1383,19 +1506,19 @@
         }, {
           key: "getAdminUserList",
           value: function getAdminUserList() {
-            var _this4 = this;
+            var _this5 = this;
 
             this._spinner.show("Fetching Admin Users list...");
 
             this.subscriptions.add(this._adminUserhttps.fetchAllAdminUsers(this.pageSize, this.currentPage, this.where).subscribe(function (resp) {
-              _this4.adminList = resp.data;
-              _this4.adminCount = resp.count;
+              _this5.adminList = resp.data;
+              _this5.adminCount = resp.count;
 
-              _this4._spinner.hide();
+              _this5._spinner.hide();
             }, function (err) {
-              _this4._toast.error(err.error.message);
+              _this5._toast.error(err.error.message);
 
-              _this4._spinner.hide();
+              _this5._spinner.hide();
             }));
           }
         }, {
@@ -1421,14 +1544,14 @@
         }, {
           key: "onStatusUpdate",
           value: function onStatusUpdate(admin) {
-            var _this5 = this;
+            var _this6 = this;
 
             this.subscriptions.add(this._adminUserhttps.deleteAdminUser(admin).subscribe(function (resp) {
-              _this5.getAdminUserList();
+              _this6.getAdminUserList();
 
-              _this5._toast.success("Admin User Delete Sucessfully");
+              _this6._toast.success("Admin User Delete Sucessfully");
             }, function (err) {
-              _this5._toast.error(err.error.message);
+              _this6._toast.error(err.error.message);
             }));
           }
         }]);
@@ -1437,15 +1560,15 @@
       }();
 
       AdminUsersComponent.ɵfac = function AdminUsersComponent_Factory(t) {
-        return new (t || AdminUsersComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_3__["AdminuserHttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_toast_service__WEBPACK_IMPORTED_MODULE_4__["ToastService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_5__["SpinnerService"]));
+        return new (t || AdminUsersComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_4__["AdminuserHttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__["ToastService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_6__["SpinnerService"]));
       };
 
       AdminUsersComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
         type: AdminUsersComponent,
         selectors: [["app-admin-users"]],
         decls: 7,
-        vars: 6,
-        consts: [[3, "pageTitle", "itemCount", "button"], [1, "bg-white"], [1, "navbar", "navbar-expand-sm", "bg-white", "justify-content-between"], [1, "col-md-5", "p-0"], [3, "placeholder", "searchChange"], [3, "adminList", "statusUpdate"], [3, "total", "currentPage", "pageChange", 4, "ngIf"], [3, "total", "currentPage", "pageChange"]],
+        vars: 7,
+        consts: [[3, "pageTitle", "itemCount", "breadcrumbList", "button"], [1, "bg-white"], [1, "navbar", "navbar-expand-sm", "bg-white", "justify-content-between"], [1, "col-md-5", "p-0"], [3, "placeholder", "searchChange"], [3, "adminList", "statusUpdate"], [3, "total", "currentPage", "pageChange", 4, "ngIf"], [3, "total", "currentPage", "pageChange"]],
         template: function AdminUsersComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-page-titlebar", 0);
@@ -1482,7 +1605,7 @@
           }
 
           if (rf & 2) {
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pageTitle", ctx.pageTitle)("itemCount", ctx.adminCount)("button", ctx.button);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("pageTitle", ctx.pageTitle)("itemCount", ctx.adminCount)("breadcrumbList", ctx.breadcrumbList)("button", ctx.button);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
@@ -1497,7 +1620,7 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.adminCount);
           }
         },
-        directives: [_shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_6__["PageTitlebarComponent"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbNavbar"], _shared_components_search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_8__["SearchBarComponent"], _components_admin_users_listing_admin_users_listing_component__WEBPACK_IMPORTED_MODULE_9__["AdminUsersListingComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_10__["NgIf"], _shared_components_pagination_pagination_component__WEBPACK_IMPORTED_MODULE_11__["PaginationComponent"]],
+        directives: [_shared_components_page_titlebar_page_titlebar_component__WEBPACK_IMPORTED_MODULE_7__["PageTitlebarComponent"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__["NgbNavbar"], _shared_components_search_bar_search_bar_component__WEBPACK_IMPORTED_MODULE_9__["SearchBarComponent"], _components_admin_users_listing_admin_users_listing_component__WEBPACK_IMPORTED_MODULE_10__["AdminUsersListingComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_11__["NgIf"], _shared_components_pagination_pagination_component__WEBPACK_IMPORTED_MODULE_12__["PaginationComponent"]],
         styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhZG1pbi11c2Vycy5jb21wb25lbnQuc2NzcyJ9 */"]
       });
       /*@__PURE__*/
@@ -1512,11 +1635,11 @@
           }]
         }], function () {
           return [{
-            type: _services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_3__["AdminuserHttpService"]
+            type: _services_adminuser_http_service__WEBPACK_IMPORTED_MODULE_4__["AdminuserHttpService"]
           }, {
-            type: _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_4__["ToastService"]
+            type: _shared_services_toast_service__WEBPACK_IMPORTED_MODULE_5__["ToastService"]
           }, {
-            type: _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_5__["SpinnerService"]
+            type: _shared_services_spinner_service__WEBPACK_IMPORTED_MODULE_6__["SpinnerService"]
           }];
         }, null);
       })();

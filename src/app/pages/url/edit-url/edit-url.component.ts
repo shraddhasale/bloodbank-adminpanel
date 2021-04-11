@@ -7,13 +7,16 @@ import { EndpointI } from '../models/endpoint.model';
 import { UrlHttpsService } from '../services/url-https.service'
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { URL_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-edit-url',
   templateUrl: './edit-url.component.html',
   styleUrls: ['./edit-url.component.scss']
 })
 export class EditUrlComponent implements OnInit {
-
+  readonly breadcrumbList: BreadcrumbI[] = URL_BREADCRUMSLIST.edit;
+  ;
   urlWrapper: EndpointI;
   readonly pageTitle = "Edit URL"
   private subscriptions: Subscription = new Subscription();

@@ -5,14 +5,16 @@ import { AdminuserI} from '../models/adminuser.model';
 import { AdminuserHttpService } from '../services/adminuser-http.service';
 import { StatusEnum } from '@const/api.constant';
 import { ToastService } from '@shared/services/toast.service';
-
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { ADMIN_USERS_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-add-admin-users',
   templateUrl: './add-admin-users.component.html',
   styleUrls: ['./add-admin-users.component.scss']
 })
 export class AddAdminUsersComponent implements OnInit,OnDestroy {
-
+  readonly breadcrumbList: BreadcrumbI[] = ADMIN_USERS_BREADCRUMSLIST.add;
+  readonly pageTitle = 'Add New Admin User';
   adminUserWrapper: AdminuserI;
   private subscriptions: Subscription = new Subscription();
 
@@ -33,7 +35,8 @@ export class AddAdminUsersComponent implements OnInit,OnDestroy {
       lastName: "",
       phoneNumber: "",
       password: "",
-      statusID: StatusEnum.ACTIVE
+      statusID: StatusEnum.ACTIVE,
+      roleID: [],
     };
   }
 

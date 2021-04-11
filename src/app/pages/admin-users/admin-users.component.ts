@@ -9,13 +9,15 @@ import { AdminuserI } from '../admin-users/models/adminuser.model'
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
 import { StatusEnum } from '@const/api.constant';
-
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { ADMIN_USERS_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-admin-users',
   templateUrl: './admin-users.component.html',
   styleUrls: ['./admin-users.component.scss']
 })
 export class AdminUsersComponent implements OnInit {
+  readonly breadcrumbList: BreadcrumbI[] = ADMIN_USERS_BREADCRUMSLIST.listing;
   readonly button: ButtonOptionsI = {
     label: 'Add New User',
     routerLink: ['/admin-users/add']

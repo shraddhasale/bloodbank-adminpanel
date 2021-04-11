@@ -8,14 +8,16 @@ import { UserHttpService } from '../services/user-http.service'
 import { StatusEnum } from '@const/api.constant';
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
-
+import { BreadcrumbI } from '@shared/models/titlebar.model';
+import { USERS_BREADCRUMSLIST } from '@const/breadcrumb.constant';
 @Component({
   selector: 'app-add-users',
   templateUrl: './add-users.component.html',
   styleUrls: ['./add-users.component.scss']
 })
 export class AddUsersComponent implements OnInit {
-
+  readonly breadcrumbList: BreadcrumbI[] = USERS_BREADCRUMSLIST.add;
+  readonly pageTitle = 'Add New  User';
   userWrapper: UserI;
   private subscriptions: Subscription = new Subscription();
 

@@ -3,12 +3,13 @@ import { UserBloodBankDonateHttpService } from './services/user-blood-bank-donat
 
 
 import { Subscription } from 'rxjs';
-import { ButtonOptionsI } from '@shared/models/titlebar.model';
+import { BreadcrumbI, ButtonOptionsI } from '@shared/models/titlebar.model';
 import { API_CONFIG} from '@const/api.constant';
 import { UserBloodBankDonateI } from '../user-blood-bank-donate/models/user-blood-bank-donate'
 import { SpinnerService } from '@shared/services/spinner.service';
 import { ToastService } from '@shared/services/toast.service';
 import { StatusEnum } from '@const/api.constant';
+import { BLOOD_DONATEBREADCRUMSLIST } from '@const/breadcrumb.constant';
 
 @Component({
   selector: 'app-user-blood-bank-donate',
@@ -16,7 +17,7 @@ import { StatusEnum } from '@const/api.constant';
   styleUrls: ['./user-blood-bank-donate.component.scss']
 })
 export class UserBloodBankDonateComponent implements OnInit {
-
+  readonly breadcrumbList: BreadcrumbI[] = BLOOD_DONATEBREADCRUMSLIST.listing;
   readonly button: ButtonOptionsI = {
     label: 'Add User Blood Bank Donate',
     routerLink: ['/user-blood-bank-donate/add']
@@ -42,14 +43,25 @@ export class UserBloodBankDonateComponent implements OnInit {
   ngOnInit(): void {
     this.getuserDonateList()
   }
+  
   getuserDonateList() {
-    this._spinner.show("Fetching Admin Users list...")
+    this._spinner.show("Fetching Blood Donate list...")
     this.subscriptions.add(
       this._bloodbankDonatehttps.fetchAlldonateUser(this.pageSize,this.currentPage,this.where).subscribe(resp=>{
-        this.userDonateList = resp.data;
-        console.log(this.userDonateList);
         
-        this.userDonateCount = resp.count
+        // this.userDonateList = resp.data;
+        // this.userDonateCount = resp.count
+        this._spinner.hide();
+        if(resp && resp['data'] && resp['data'].length > 0){
+          this.userDonateList = resp.data.map(user =>{
+            user['userDetails'] = resp['relationData'].user[user.userID] || ""
+            user['bloodBankDetails'] = resp['relationData'].bloodbank[user.bloodBankID] || ""
+            return user
+          })
+        }else{
+          this.userDonateList = []
+        }
+        this.userDonateCount = resp.count;
         this._spinner.hide();
       },
         (err) => {
@@ -72,6 +84,7 @@ export class UserBloodBankDonateComponent implements OnInit {
     this.currentPage = 1;
     this.getuserDonateList();
   }
+  
   onStatusUpdate(donate){
     this.subscriptions.add(
       this._bloodbankDonatehttps.deletedonateUser(donate).subscribe(
