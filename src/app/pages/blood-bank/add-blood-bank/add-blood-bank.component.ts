@@ -47,7 +47,7 @@ export class AddBloodBankComponent implements OnInit {
   }
 
   onBloodBankSubmit(bloodbank) {
-    if(bloodbank.statusID === false){
+    if(this.bloodBankWrapper.statusID === false){
       bloodbank.statusID = 0
     }else if(this.bloodBankWrapper.statusID === true){
       bloodbank.statusID = 1;

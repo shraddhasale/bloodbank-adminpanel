@@ -476,11 +476,11 @@
               bloodgroup: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.userWrapper, ['bloodgroup'], '')],
               address: this._formBuilder.group({
                 country: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.userWrapper, 'address.country', '')],
-                state: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.userWrapper, ['address.state'], '')],
-                city: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.userWrapper, ['address.city'], '')],
-                pinCode: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.userWrapper, ['address.pinCode'], '')],
-                landMark: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.userWrapper, ['address.landMark'], '')],
-                location: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.userWrapper, ['address.location'], '')]
+                state: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.userWrapper, 'address.state', '')],
+                city: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.userWrapper, 'address.city', '')],
+                pinCode: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.userWrapper, 'address.pinCode', '')],
+                landMark: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.userWrapper, 'address.landMark', '')],
+                location: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.userWrapper, 'address.location', '')]
               }),
               statusID: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.userWrapper, ['statusID'], _const_api_constant__WEBPACK_IMPORTED_MODULE_4__["StatusEnum"].ACTIVE)]
             });
