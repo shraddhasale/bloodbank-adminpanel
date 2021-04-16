@@ -51,7 +51,7 @@ export class UserBloodBankDonateComponent implements OnInit {
         
         // this.userDonateList = resp.data;
         // this.userDonateCount = resp.count
-        this._spinner.hide();
+        
         if(resp && resp['data'] && resp['data'].length > 0){
           this.userDonateList = resp.data.map(user =>{
             user['userDetails'] = resp['relationData'].user[user.userID] || ""

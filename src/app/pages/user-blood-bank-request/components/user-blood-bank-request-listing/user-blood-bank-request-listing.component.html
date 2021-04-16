@@ -5,7 +5,7 @@
       <thead>
         <tr class="border-top border-bottom">
           <th class="font-weight-normal align-middle  pl-3">Date</th>
-          <th class="font-weight-normal align-middle  pl-3">Blood Bank ID</th>
+          <th class="font-weight-normal align-middle  pl-3">Name</th>
           <th class="font-weight-normal align-middle  pl-3">Is Hospitalize</th>
           <th class="font-weight-normal align-middle  pl-3">RequestFor</th>
           <th class="font-weight-normal align-middle px-3" style="width:120px">Action</th>
@@ -17,7 +17,10 @@
            {{admin?.createdAt | date: 'dd/MM/yyyy' }}
           </td>
           <td class="align-middle  pl-3">
-            {{admin?.bloodBankID}}
+             <a 
+                [routerLink]="['/blood-bank/edit/',admin?.bloodBankID]" 
+                target= "_blank"
+              >{{admin?.bloodBankDetails?.firstName}} {{admin?.bloodBankDetails?.lastName}}</a>
            </td>
           <td class="align-middle  pl-3">
             {{admin?.isHospitalize}}

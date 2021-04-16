@@ -60,8 +60,8 @@ export class EditUserBloodBankDonateComponent implements OnInit {
       this.bloodDonateWrapper.statusID = 1;
     }
     delete  this.bloodDonateWrapper.id;
-    // delete this.bloodDonateWrapper.createdAt;
-    // delete this.bloodDonateWrapper.updatedAt;
+    delete this.bloodDonateWrapper.createdAt;
+    delete this.bloodDonateWrapper.updatedAt;
     this._spinner.show('Updating Blood Donate ...');
     let updatedEndpointWrapper = { ...this.bloodDonateWrapper };
     this.subscriptions.add(

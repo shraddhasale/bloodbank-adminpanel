@@ -47,7 +47,14 @@ export class UserBloodBankRequestComponent implements OnInit {
     this._spinner.show("Fetching Admin Users list...")
     this.subscriptions.add(
       this._bloodbankRequesthttps.fetchAllRequestUser(this.pageSize,this.currentPage,this.where).subscribe(resp=>{
-        this.userRequestList = resp.data;
+        if(resp && resp['data'] && resp['data'].length > 0){
+          this.userRequestList = resp.data.map(user =>{
+            user['bloodBankDetails'] = resp['relationData'].bloodbank[user.bloodBankID] || ""
+            return user
+          })
+        }else{
+          this.userRequestList = []
+        }
         this.userRequestCount = resp.count
         this._spinner.hide();
       },

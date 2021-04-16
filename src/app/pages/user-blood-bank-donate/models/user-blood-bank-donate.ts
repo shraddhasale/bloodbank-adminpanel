@@ -4,5 +4,8 @@ export interface UserBloodBankDonateI {
     bloodBankID: string,
     paidAmount: number,
     paidStatus: number,
+    createdAt?: string,
+    updatedAt?: string,
+    requestFor: string,
     statusID: number | boolean;
 }

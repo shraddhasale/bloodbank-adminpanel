@@ -36,6 +36,7 @@ export class AddUserBloodBankDonateComponent implements OnInit {
       bloodBankID: "",
       paidAmount: 0,
       paidStatus: 0,
+      requestFor:'',
       statusID: StatusEnum.ACTIVE
     };
   }

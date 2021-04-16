@@ -9,6 +9,7 @@
           <th class="font-weight-normal align-middle  pl-3">Blood Bank User</th>
           <th class="font-weight-normal align-middle  pl-3">Paid Amount</th>
           <th class="font-weight-normal align-middle  pl-3">Paid Status</th>
+          <th class="font-weight-normal align-middle  pl-3">RequestFor</th>
           <th class="font-weight-normal align-middle px-3" style="width:120px">Action</th>
         </tr>
       </thead>
@@ -36,7 +37,9 @@
            <td class="align-middle  pl-3">
             {{list?.paidStatus}}
            </td>
-           
+           <td class="align-middle  pl-3">
+            {{list?.requestFor || '-'}}
+           </td>
           <td class="align-middle">
             <app-action-bar
             [item]="list"

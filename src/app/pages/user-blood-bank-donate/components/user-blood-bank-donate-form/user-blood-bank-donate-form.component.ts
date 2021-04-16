@@ -45,6 +45,7 @@ export class UserBloodBankDonateFormComponent implements OnInit {
       bloodBankID: [get(this.bloodDonateWrapper, ['bloodBankID'], ''), Validators.required],
       paidAmount: [get(this.bloodDonateWrapper, ['paidAmount'], ''), Validators.required],
       paidStatus: [get(this.bloodDonateWrapper, ['paidStatus'], 0), Validators.required],
+      requestFor: [get(this.bloodDonateWrapper, ['requestFor'], ''), Validators.required],
       statusID: [
         get(this.bloodDonateWrapper, ['statusID'],StatusEnum.ACTIVE)],
      
@@ -69,6 +70,7 @@ export class UserBloodBankDonateFormComponent implements OnInit {
     set(this.bloodDonateWrapper, ['userID'], formValue['userID']);
     set(this.bloodDonateWrapper, ['bloodBankID'], formValue['bloodBankID']);
     set(this.bloodDonateWrapper, ['paidAmount'], formValue['paidAmount']);
+    set(this.bloodDonateWrapper, ['requestFor'], formValue['requestFor']);
     set(this.bloodDonateWrapper, ['paidStatus'], formValue['paidStatus']);
     set(this.bloodDonateWrapper, ['statusID'], formValue['statusID']);
   }

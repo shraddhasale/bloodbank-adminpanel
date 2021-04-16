@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const _c0 = function (a1) { return ["/users/edit/", a1]; };
 const _c1 = function (a1) { return ["/blood-bank/edit/", a1]; };
-function UserBloodBankDonateListingComponent_tr_17_Template(rf, ctx) { if (rf & 1) {
+function UserBloodBankDonateListingComponent_tr_19_Template(rf, ctx) { if (rf & 1) {
     const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr", 6);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "td", 7);
@@ -44,9 +44,12 @@ function UserBloodBankDonateListingComponent_tr_17_Template(rf, ctx) { if (rf & 
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "td", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "td", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "app-action-bar", 10);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("onItemUpdate", function UserBloodBankDonateListingComponent_tr_17_Template_app_action_bar_onItemUpdate_15_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.onUpdate($event); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "td", 7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "td", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "app-action-bar", 10);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("onItemUpdate", function UserBloodBankDonateListingComponent_tr_19_Template_app_action_bar_onItemUpdate_17_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.onUpdate($event); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -54,19 +57,21 @@ function UserBloodBankDonateListingComponent_tr_17_Template(rf, ctx) { if (rf & 
     const list_r1 = ctx.$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](3, 13, list_r1 == null ? null : list_r1.createdAt, "dd/MM/yyyy"), " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](3, 14, list_r1 == null ? null : list_r1.createdAt, "dd/MM/yyyy"), " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](16, _c0, list_r1 == null ? null : list_r1.userID));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](17, _c0, list_r1 == null ? null : list_r1.userID));
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", list_r1 == null ? null : list_r1.userDetails == null ? null : list_r1.userDetails.firstName, " ", list_r1 == null ? null : list_r1.userDetails == null ? null : list_r1.userDetails.lastName, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](18, _c1, list_r1 == null ? null : list_r1.bloodBankID));
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](19, _c1, list_r1 == null ? null : list_r1.bloodBankID));
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", list_r1 == null ? null : list_r1.bloodBankDetails == null ? null : list_r1.bloodBankDetails.firstName, " ", list_r1 == null ? null : list_r1.bloodBankDetails == null ? null : list_r1.bloodBankDetails.lastName, "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", list_r1 == null ? null : list_r1.paidAmount, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", list_r1 == null ? null : list_r1.paidStatus, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", (list_r1 == null ? null : list_r1.requestFor) || "-", " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("item", list_r1)("showStatus", false)("showClone", false)("editPageUrl", ctx_r0.listUrl + list_r1.id);
 } }
@@ -83,7 +88,7 @@ class UserBloodBankDonateListingComponent {
     }
 }
 UserBloodBankDonateListingComponent.ɵfac = function UserBloodBankDonateListingComponent_Factory(t) { return new (t || UserBloodBankDonateListingComponent)(); };
-UserBloodBankDonateListingComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: UserBloodBankDonateListingComponent, selectors: [["app-user-blood-bank-donate-listing"]], inputs: { userDonateList: "userDonateList" }, outputs: { statusUpdate: "statusUpdate" }, decls: 18, vars: 1, consts: [[1, "acl-user-container"], [1, "table", "user-table"], [1, "border-top", "border-bottom"], [1, "font-weight-normal", "align-middle", "pl-3"], [1, "font-weight-normal", "align-middle", "px-3", 2, "width", "120px"], ["class", "border-bottom", 4, "ngFor", "ngForOf"], [1, "border-bottom"], [1, "align-middle", "pl-3"], ["target", "_blank", 3, "routerLink"], [1, "align-middle"], [3, "item", "showStatus", "showClone", "editPageUrl", "onItemUpdate"]], template: function UserBloodBankDonateListingComponent_Template(rf, ctx) { if (rf & 1) {
+UserBloodBankDonateListingComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: UserBloodBankDonateListingComponent, selectors: [["app-user-blood-bank-donate-listing"]], inputs: { userDonateList: "userDonateList" }, outputs: { statusUpdate: "statusUpdate" }, decls: 20, vars: 1, consts: [[1, "acl-user-container"], [1, "table", "user-table"], [1, "border-top", "border-bottom"], [1, "font-weight-normal", "align-middle", "pl-3"], [1, "font-weight-normal", "align-middle", "px-3", 2, "width", "120px"], ["class", "border-bottom", 4, "ngFor", "ngForOf"], [1, "border-bottom"], [1, "align-middle", "pl-3"], ["target", "_blank", 3, "routerLink"], [1, "align-middle"], [3, "item", "showStatus", "showClone", "editPageUrl", "onItemUpdate"]], template: function UserBloodBankDonateListingComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "table", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "thead");
@@ -103,18 +108,21 @@ UserBloodBankDonateListingComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODU
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "th", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Paid Status");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "th", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "Action");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "th", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "RequestFor");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "th", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Action");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "tbody");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, UserBloodBankDonateListingComponent_tr_17_Template, 16, 20, "tr", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "tbody");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, UserBloodBankDonateListingComponent_tr_19_Template, 18, 21, "tr", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](19);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.userDonateList);
     } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["NgForOf"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"], _shared_components_action_bar_action_bar_component__WEBPACK_IMPORTED_MODULE_3__["ActionBarComponent"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["DatePipe"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ1c2VyLWJsb29kLWJhbmstZG9uYXRlLWxpc3RpbmcuY29tcG9uZW50LnNjc3MifQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](UserBloodBankDonateListingComponent, [{
@@ -263,6 +271,7 @@ class UserBloodBankDonateFormComponent {
             bloodBankID: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.bloodDonateWrapper, ['bloodBankID'], ''), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             paidAmount: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.bloodDonateWrapper, ['paidAmount'], ''), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             paidStatus: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.bloodDonateWrapper, ['paidStatus'], 0), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
+            requestFor: [lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.bloodDonateWrapper, ['requestFor'], ''), _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required],
             statusID: [
                 lodash_get__WEBPACK_IMPORTED_MODULE_3___default()(this.bloodDonateWrapper, ['statusID'], _const_api_constant__WEBPACK_IMPORTED_MODULE_5__["StatusEnum"].ACTIVE)
             ],
@@ -285,6 +294,7 @@ class UserBloodBankDonateFormComponent {
         lodash_set__WEBPACK_IMPORTED_MODULE_4___default()(this.bloodDonateWrapper, ['userID'], formValue['userID']);
         lodash_set__WEBPACK_IMPORTED_MODULE_4___default()(this.bloodDonateWrapper, ['bloodBankID'], formValue['bloodBankID']);
         lodash_set__WEBPACK_IMPORTED_MODULE_4___default()(this.bloodDonateWrapper, ['paidAmount'], formValue['paidAmount']);
+        lodash_set__WEBPACK_IMPORTED_MODULE_4___default()(this.bloodDonateWrapper, ['requestFor'], formValue['requestFor']);
         lodash_set__WEBPACK_IMPORTED_MODULE_4___default()(this.bloodDonateWrapper, ['paidStatus'], formValue['paidStatus']);
         lodash_set__WEBPACK_IMPORTED_MODULE_4___default()(this.bloodDonateWrapper, ['statusID'], formValue['statusID']);
     }
@@ -313,7 +323,7 @@ class UserBloodBankDonateFormComponent {
     }
 }
 UserBloodBankDonateFormComponent.ɵfac = function UserBloodBankDonateFormComponent_Factory(t) { return new (t || UserBloodBankDonateFormComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_user_blood_bank_donate_http_service__WEBPACK_IMPORTED_MODULE_7__["UserBloodBankDonateHttpService"])); };
-UserBloodBankDonateFormComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: UserBloodBankDonateFormComponent, selectors: [["app-user-blood-bank-donate-form"]], inputs: { bloodDonateWrapper: "bloodDonateWrapper" }, outputs: { submit: "submit", back: "back" }, decls: 30, vars: 10, consts: [[1, "p-4", "pb-0", 3, "formGroup"], [1, "row"], [1, "form-group", "col-lg-6", "required"], ["bindLabel", "firstName", "bindValue", "id", "formControlName", "userID", 1, "w-100", "text-capitalize", 3, "multiple", "items", "searchable"], [1, "form-group", "col-lg-6", "mt-4", "d-flex", "justify-content-end"], [1, "switchToggle"], ["type", "checkbox", "formControlName", "statusID"], [1, "switchSlider"], ["bindLabel", "firstName", "bindValue", "id", "formControlName", "bloodBankID", 1, "w-100", "text-capitalize", 3, "multiple", "items", "searchable"], ["type", "text", "formControlName", "paidAmount", 1, "form-control"], ["bindLabel", "name", "bindValue", "key", "formControlName", "paidStatus", 1, "w-100", "text-capitalize", 3, "multiple", "items", "searchable", "change"], [1, "footer", "clearfix", "p-4"], ["type", "button", 1, "btn", "btn-outline-primary", "font-weight-bold", "float-left", "px-4", 3, "click"], ["type", "button", 1, "btn", "btn-primary", "font-weight-bold", "float-right", "px-4", 3, "click"]], template: function UserBloodBankDonateFormComponent_Template(rf, ctx) { if (rf & 1) {
+UserBloodBankDonateFormComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: UserBloodBankDonateFormComponent, selectors: [["app-user-blood-bank-donate-form"]], inputs: { bloodDonateWrapper: "bloodDonateWrapper" }, outputs: { submit: "submit", back: "back" }, decls: 35, vars: 10, consts: [[1, "p-4", "pb-0", 3, "formGroup"], [1, "row"], [1, "form-group", "col-lg-6", "required"], ["bindLabel", "firstName", "bindValue", "id", "formControlName", "userID", 1, "w-100", "text-capitalize", 3, "multiple", "items", "searchable"], [1, "form-group", "col-lg-6", "mt-4", "d-flex", "justify-content-end"], [1, "switchToggle"], ["type", "checkbox", "formControlName", "statusID"], [1, "switchSlider"], ["bindLabel", "firstName", "bindValue", "id", "formControlName", "bloodBankID", 1, "w-100", "text-capitalize", 3, "multiple", "items", "searchable"], ["type", "text", "formControlName", "paidAmount", 1, "form-control"], ["type", "text", "formControlName", "requestFor", 1, "form-control"], ["bindLabel", "name", "bindValue", "key", "formControlName", "paidStatus", 1, "w-100", "text-capitalize", 3, "multiple", "items", "searchable", "change"], [1, "footer", "clearfix", "p-4"], ["type", "button", 1, "btn", "btn-outline-primary", "font-weight-bold", "float-left", "px-4", 3, "click"], ["type", "button", 1, "btn", "btn-primary", "font-weight-bold", "float-right", "px-4", 3, "click"]], template: function UserBloodBankDonateFormComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "form", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -348,22 +358,30 @@ UserBloodBankDonateFormComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "label");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, "Paid Status");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, "Request For");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "ng-select", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function UserBloodBankDonateFormComponent_Template_ng_select_change_24_listener($event) { return ctx.paidStatus($event); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](24, "input", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "label");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "Paid Status");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "button", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function UserBloodBankDonateFormComponent_Template_button_click_26_listener() { return ctx.onBackClick(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, " BACK ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "ng-select", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function UserBloodBankDonateFormComponent_Template_ng_select_change_29_listener($event) { return ctx.paidStatus($event); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "button", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function UserBloodBankDonateFormComponent_Template_button_click_28_listener() { return ctx.onSubmit(); });
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, " SAVE ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "button", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function UserBloodBankDonateFormComponent_Template_button_click_31_listener() { return ctx.onBackClick(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32, " BACK ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "button", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function UserBloodBankDonateFormComponent_Template_button_click_33_listener() { return ctx.onSubmit(); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, " SAVE ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
@@ -372,7 +390,7 @@ UserBloodBankDonateFormComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("multiple", false)("items", ctx.bloodUserList)("searchable", false);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("multiple", false)("items", ctx.bloodBankList)("searchable", false);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](15);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("multiple", false)("items", ctx.paidList)("searchable", false);
     } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_8__["NgSelectComponent"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["CheckboxControlValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ1c2VyLWJsb29kLWJhbmstZG9uYXRlLWZvcm0uY29tcG9uZW50LnNjc3MifQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](UserBloodBankDonateFormComponent, [{
@@ -440,6 +458,7 @@ class AddUserBloodBankDonateComponent {
             bloodBankID: "",
             paidAmount: 0,
             paidStatus: 0,
+            requestFor: '',
             statusID: _const_api_constant__WEBPACK_IMPORTED_MODULE_3__["StatusEnum"].ACTIVE
         };
     }
@@ -566,7 +585,6 @@ class UserBloodBankDonateComponent {
         this.subscriptions.add(this._bloodbankDonatehttps.fetchAlldonateUser(this.pageSize, this.currentPage, this.where).subscribe(resp => {
             // this.userDonateList = resp.data;
             // this.userDonateCount = resp.count
-            this._spinner.hide();
             if (resp && resp['data'] && resp['data'].length > 0) {
                 this.userDonateList = resp.data.map(user => {
                     user['userDetails'] = resp['relationData'].user[user.userID] || "";
@@ -722,8 +740,8 @@ class EditUserBloodBankDonateComponent {
             this.bloodDonateWrapper.statusID = 1;
         }
         delete this.bloodDonateWrapper.id;
-        // delete this.bloodDonateWrapper.createdAt;
-        // delete this.bloodDonateWrapper.updatedAt;
+        delete this.bloodDonateWrapper.createdAt;
+        delete this.bloodDonateWrapper.updatedAt;
         this._spinner.show('Updating Blood Donate ...');
         let updatedEndpointWrapper = Object.assign({}, this.bloodDonateWrapper);
         this.subscriptions.add(this._bloodDonatettHttp.updatedonateUser(updatedEndpointWrapper, urlId).subscribe((res) => {
