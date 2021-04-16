@@ -49,6 +49,7 @@ export class UserBloodBankRequestComponent implements OnInit {
       this._bloodbankRequesthttps.fetchAllRequestUser(this.pageSize,this.currentPage,this.where).subscribe(resp=>{
         if(resp && resp['data'] && resp['data'].length > 0){
           this.userRequestList = resp.data.map(user =>{
+            user['userDetails'] = resp['relationData'].user[user.userID] || ""
             user['bloodBankDetails'] = resp['relationData'].bloodbank[user.bloodBankID] || ""
             return user
           })

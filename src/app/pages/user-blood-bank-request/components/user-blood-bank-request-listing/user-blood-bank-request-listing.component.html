@@ -6,6 +6,7 @@
         <tr class="border-top border-bottom">
           <th class="font-weight-normal align-middle  pl-3">Date</th>
           <th class="font-weight-normal align-middle  pl-3">Name</th>
+          <th class="font-weight-normal align-middle  pl-3">Blood Bank User</th>
           <th class="font-weight-normal align-middle  pl-3">Is Hospitalize</th>
           <th class="font-weight-normal align-middle  pl-3">RequestFor</th>
           <th class="font-weight-normal align-middle px-3" style="width:120px">Action</th>
@@ -21,6 +22,12 @@
                 [routerLink]="['/blood-bank/edit/',admin?.bloodBankID]" 
                 target= "_blank"
               >{{admin?.bloodBankDetails?.firstName}} {{admin?.bloodBankDetails?.lastName}}</a>
+           </td>
+           <td class="align-middle  pl-3">
+            <a 
+                [routerLink]="['/users/edit/',list?.userID]" 
+                target= "_blank"
+              >{{admin?.userDetails?.firstName}} {{admin?.userDetails?.lastName}}</a>
            </td>
           <td class="align-middle  pl-3">
             {{admin?.isHospitalize}}
